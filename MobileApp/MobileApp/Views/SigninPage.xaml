@@ -4,9 +4,21 @@
              x:Class="MobileApp.Views.SigninPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="UserName" Keyboard="Text" Placeholder="Email/Số điện thoại" WidthRequest="400"></Entry>
+
+            <Entry x:Name="Password" Keyboard="Text" IsPassword="True" Placeholder="Mật khẩu" WidthRequest="400"></Entry>
+
+            <Button x:Name="FogotPass" Text="Quên mật khẩu?" 
+                    WidthRequest="150" Font="12" TextColor="DarkGreen" BackgroundColor="White" 
+                    VerticalOptions="Center" HorizontalOptions="End" Clicked="FogotPass_Clicked" ></Button>
+
+            <Button x:Name="LogginBtn" Text="ĐĂNG NHẬP" 
+                    WidthRequest="400" TextColor="White" BackgroundColor="DarkGreen" 
+                    VerticalOptions="Center" HorizontalOptions="Center" Clicked="LogginBtn_Clicked" ></Button>
+
+            <Button x:Name="RegisterBtn" Text="Bạn chưa có tải khoản? Hãy Đăng ký ngay!!!" 
+                    WidthRequest="400" Font="10" TextColor="DarkGreen" BorderWidth="1" BorderColor="DarkGreen" BackgroundColor="White"
+                    VerticalOptions="Center" HorizontalOptions="Center" Clicked="RegisterBtn_Clicked" ></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
