@@ -14,7 +14,7 @@ namespace MobileApp
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new HomePage();
         }
 
         protected override void OnStart()
