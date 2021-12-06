@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.HomePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout BackgroundColor="Green" Padding="8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Entry Placeholder="Tìm kiếm" Grid.Row="0" Grid.Column="0" BackgroundColor="White"/>
+                    <Label Text="Check giá" Grid.Row="0" Grid.Column="1" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Chọn khu vực" Grid.Row="0" Grid.Column="2" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Kiểm tra đơn hàng" Grid.Row="0" Grid.Column="3" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </Grid>
+            </StackLayout>
+            <ScrollView HeightRequest="700">
+                <StackLayout>
+                    <RelativeLayout BackgroundColor="Aqua">
+                        <ListView x:Name="lst"
+                                  CachingStrategy="RecycleElement"
+                                  RowHeight="250"
+                                  Rotation="270"
+                                  RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-120}"
+                                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=150}"
+                                  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,  Factor=1}"
+                                  RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=270}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ContentView WidthRequest="200" Rotation="90">
+                                            <Label Text="{Binding ID}" TextColor="Blue" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                                        </ContentView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </RelativeLayout>
+                    <BoxView HeightRequest="300" BackgroundColor="Red" ></BoxView>
+                    <BoxView HeightRequest="300" BackgroundColor="Yellow" ></BoxView>
+                    <BoxView HeightRequest="300" BackgroundColor="Red" ></BoxView>
+                    <BoxView HeightRequest="300" BackgroundColor="Yellow" ></BoxView>
+                    <BoxView HeightRequest="300" BackgroundColor="Red" ></BoxView>
+                    <BoxView HeightRequest="300" BackgroundColor="Yellow" ></BoxView>
+                    <BoxView HeightRequest="300" BackgroundColor="Red" ></BoxView>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
