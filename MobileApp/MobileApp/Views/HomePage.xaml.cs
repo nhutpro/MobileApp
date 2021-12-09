@@ -7,15 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MobileApp
+namespace MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-
         List<Product> products = new List<Product>();
-
-
 
         void init()
         {
@@ -28,7 +25,6 @@ namespace MobileApp
             products.Add(new Product { ID = 7 });
             lst.ItemsSource = products;
         }
-
 
         public HomePage()
         {
