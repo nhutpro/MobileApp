@@ -25,7 +25,7 @@ namespace MobileApp.Views
         private void LogginBtn_Clicked(object sender, EventArgs e)
         {
             List<User> users = new List<User>();
-
+            
             Database db = new Database();
             users = db.GetUser();
 
@@ -36,6 +36,8 @@ namespace MobileApp.Views
                     if (user.UserName == UserName.Text && user.Password == Password.Text)
                     {
                         DisplayAlert("Thong bao", "Dang nhap thanh cong!!!", "OK");
+                        App.Current.MainPage = new AppShell();
+
                     }
                 }
             }
@@ -43,6 +45,7 @@ namespace MobileApp.Views
             {
                 DisplayAlert("Thong bao", "Nhap tai khoan va mat khau!!!", "OK");
             }
+            
         }
 
         private void FogotPass_Clicked(object sender, EventArgs e)

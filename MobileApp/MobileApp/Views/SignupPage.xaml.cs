@@ -51,7 +51,7 @@ namespace MobileApp.Views
 
         private void LogginBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new LoginPage());
+            Navigation.PushAsync(new SigninPage());
         }
     }
 }
