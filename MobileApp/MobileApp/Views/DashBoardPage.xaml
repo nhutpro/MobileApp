@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.DashBoardPage">
     <ContentPage.Content>
-        <StackLayout >
-            <Grid BackgroundColor="#306E51">
+        <StackLayout HeightRequest="400" Spacing="0">
+            <Grid BackgroundColor="#306E51" Padding="0,10,0,10">
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*">
@@ -21,29 +21,39 @@
                 <Label Text="Giá Thấp" Grid.Column="2" Grid.Row="0" FontSize="Medium" TextColor="#fff" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
                 <Label Text="Giá Cao" Grid.Column="3" Grid.Row="0" FontSize="Medium" TextColor="#fff"  VerticalOptions="Center" HorizontalOptions="Center"></Label>
             </Grid>
-            <StackLayout>
-                <ListView RowHeight="100" x:Name="LskItems">
+            <StackLayout Spacing="0" >
+                <ListView  x:Name="LskItems" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
+                                       VerticalOptions="FillAndExpand">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*">
-                                        </ColumnDefinition>
-                                        <ColumnDefinition Width="2*"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="{Binding Id}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></Image>
-                                    <Label Text="{Binding Description}" Grid.Column="1" Grid.Row="0"></Label>
-                                    <Label Text="{Binding Text}" Grid.Column="1" Grid.Row="1"></Label>
-                                </Grid>
+                            <ViewCell >
+                                <StackLayout  Padding="0" Spacing="0" Margin="0">
+                                    <Grid   Margin="0" RowSpacing="0" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*">
+                                            </ColumnDefinition>
+                                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Image x:Name="img" Source="{Binding Image}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" MinimumHeightRequest="200" MinimumWidthRequest="200"></Image>
+                                        <Label Text="{Binding Name}" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center"></Label>
+                                        <Label  Text="{Binding Price, StringFormat='{0:#,0} đ'}" Grid.Column="1" Grid.Row="1" TextColor="red" VerticalOptions="Center"></Label>
+
+                                    </Grid>
+                                    <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
+                                    
+                                </StackLayout>
+                              
+
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+            <Button Text="Ấn Vào " Clicked="Button_Clicked" x:Name="button"></Button>
         </StackLayout>
 
     </ContentPage.Content>
