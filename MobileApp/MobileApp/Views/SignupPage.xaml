@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.SignupPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="FullName" Keyboard="Text" Placeholder="Họ và Tên"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+            <Entry x:Name="UserName" Keyboard="Text" Placeholder="Email/Số điện thoại"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+            <Entry x:Name="PassWord" Keyboard="Text" Placeholder="Mật khẩu" IsPassword="True"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+            <Entry x:Name="DateofBirth" Keyboard="Text" Placeholder="Ngày sinh"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+            <StackLayout>
+                <RadioButton Content="Nam" GroupName="Gender"></RadioButton>
+                <RadioButton Content="Nữ" GroupName="Gender"></RadioButton>
+            </StackLayout>
+            <Button x:Name="RegisterBtn" Text="ĐĂNG KÝ" 
+                    WidthRequest="400" TextColor="White" BackgroundColor="DarkGreen" 
+                    VerticalOptions="Center" HorizontalOptions="Center" Clicked="RegisterBtn_Clicked" ></Button>
+            <Button x:Name="LogginBtn" Text="Bạn đã có tải khoản? Đăng nhập ngay!!!" 
+                    WidthRequest="400" Font="10" TextColor="DarkGreen" BorderWidth="1" BorderColor="DarkGreen" BackgroundColor="White"
+                    VerticalOptions="Center" HorizontalOptions="Center" Clicked="LogginBtn_Clicked" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
