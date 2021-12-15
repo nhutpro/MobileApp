@@ -8,7 +8,7 @@ namespace MobileApp
 {
     public partial class App : Application
     {
-
+        public static string UserID { get; set; }
         public App()
         {
             InitializeComponent();
@@ -16,11 +16,13 @@ namespace MobileApp
             DependencyService.Register<MockDataStore>();
             Database db = new Database();
             db.CreateDatabase();
-            MainPage =new  NavigationPage (new  SigninPage());
+            MainPage = new AppShell();
+          
         }
 
         protected override void OnStart()
         {
+           
         }
 
         protected override void OnSleep()
