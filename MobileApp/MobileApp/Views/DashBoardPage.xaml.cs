@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Globalization;
 using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace MobileApp.Views
 {
@@ -17,24 +18,27 @@ namespace MobileApp.Views
         public DashBoardPage()
         {
             InitializeComponent();
-            double ad = 300000;
-            List < Item > item = new List<Item>();
-            for(var i = 0; i< 10; i++)
-            {
-                item.Add(new Item { Id = "1", Description = "Thuốc trừ sâu", Name = "Thuốc trừ sâu", Image = "anhthuoc.jpg", Price = 1000000 });
-            }    
-               
-            LskItems.ItemsSource = item;
+
+            LisInit();
           
         }
-
-        async private void Button_Clicked(object sender, EventArgs e)
+        async void LisInit()
         {
             HttpClient httpClient = new HttpClient();
-            var result = await httpClient.GetStringAsync("http://172.19.48.1/WebApplication2/api/ServiceController/HelloAPI");
-            button.Text = result;
-            
+            var productlist = await httpClient.GetStringAsync("http://172.18.128.1/MobileAPI/hello");
+            var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
+            LskItems.ItemsSource = productlistConvert;
+           
+           
+        }
 
+       async private void ImageButton_Clicked(object sender, EventArgs e)
+        {   ImageButton button = (ImageButton)sender;
+            Products product = button.CommandParameter as Products;
+            HttpClient httpClient = new HttpClient();
+            String addCart = await httpClient.GetStringAsync("http://172.18.128.1/MobileAPI/product/addcart?UserID=USE01&ProID="+product.PRODUCTID); 
+            await DisplayAlert("Thông Báo", "Thêm thành công", "OK");
+            
         }
     }
 }

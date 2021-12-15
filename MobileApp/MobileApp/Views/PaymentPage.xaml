@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.PaymentPage"
+             Title="Thanh Toán">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="location.png" WidthRequest="20" HeightRequest="20" Grid.Column="0"
+                       Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Start"></Image>
+                <StackLayout Grid.Column="1" Grid.Row="0" Spacing="0" HorizontalOptions="FillAndExpand">
+                    <Label Text="Địa chỉ giao hàng" FontSize="Medium"></Label>
+                    <Label Text="Trần Nhựt" FontSize="Medium"></Label>
+                    <Label Text="0393625460" FontSize="Medium"></Label>
+                    <Label Text="31 QL 13 Phường 26, quận Bình Thạnh" FontSize="Medium"></Label>
+                </StackLayout>
+            </Grid>
+            <ListView  x:Name="listpayment" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
+                                       VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout  Padding="0" Spacing="0" Margin="0">
+                                <Grid   Margin="0" RowSpacing="0" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand"></Image>
+                                    <Label Text="{Binding NAME}" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center"></Label>
+                                    <Label  Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" Grid.Column="1" Grid.Row="1" TextColor="red" VerticalOptions="Center"></Label>
+                                    <Label Text="X2" BackgroundColor="#fff" Margin="0,0,10,0"
+                                             Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
+                                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
+                                </Grid>
+                                <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
+
+                            </StackLayout>
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout>
+                <Label Text="Phương Thức Vận Chuyển" TextColor="#000" Margin="10,0,0,0" FontSize="Large"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Nhanh" VerticalOptions="Start" Margin="10,0,0,0" FontSize="Large" ></Label>
+                    <Label Text="30.000đ" VerticalOptions="End" Margin="200,0,0,0" FontSize="Large"></Label>
+                </StackLayout>
+            </StackLayout>
+            <BoxView HeightRequest="1" BackgroundColor="#ccc"></BoxView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="0">
+                <StackLayout Spacing="0" Margin="0,0,10,0">
+                    <Label Text="Tổng Thanh Toán" FontSize="Large"></Label>
+                    <Label x:Name="total" FontSize="Large" HorizontalOptions="End" ></Label>
+                </StackLayout>
+                <Button Text="Đặt Hàng"  HorizontalOptions="Center" VerticalOptions="Center"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

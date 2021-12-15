@@ -2,13 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.CartPage">
+  
     <ContentPage.Content>
-        <StackLayout Spacing="0">
+        <StackLayout Spacing="0"  >
+            <StackLayout x:Name="empty" IsVisible="false"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                <Image Source="empty.png" HeightRequest="300" WidthRequest="300"></Image>
+            </StackLayout>
             <ListView  HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
-                                       VerticalOptions="FillAndExpand" x:Name="listCart">
+                                       VerticalOptions="FillAndExpand" x:Name="listCart" IsVisible="false" ItemSelected="listCart_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell >
+                        <ViewCell  >
                             <StackLayout  Padding="0" Spacing="0" Margin="0">
                                 <Grid   Margin="0" RowSpacing="0" >
                                     <Grid.RowDefinitions>
@@ -20,26 +24,73 @@
                                         <ColumnDefinition Width="*">
                                         </ColumnDefinition>
                                         <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <Image x:Name="img" Source="{Binding Image}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" MinimumHeightRequest="200" MinimumWidthRequest="200"></Image>
-                                    <Label Text="{Binding Name}" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center"></Label>
-                                    <Label  Text="{Binding Price, StringFormat='{0:#,0} đ'}" Grid.Column="1" Grid.Row="1" TextColor="red" VerticalOptions="Center"></Label>
-                                    <StackLayout Grid.Column="1" Grid.Row="2">
-                                        <Stepper></Stepper>
-                                        <Label Text="nhutpro"></Label>
-                                    </StackLayout>                   
+                                    <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" MinimumHeightRequest="200" MinimumWidthRequest="200"></Image>
+                                    <Label Text="{Binding NAME}" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center"></Label>
+                                    <Label  Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" Grid.Column="1" Grid.Row="1" TextColor="red" VerticalOptions="Center"></Label>
+                                    <StackLayout Grid.Column="1" Grid.Row="2" Margin="0,20,0,0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <ImageButton HeightRequest="30" WidthRequest="30"
+                                                         Source="subtract.png"  Clicked="ImageButton_Clicked"
+                                                         VerticalOptions="CenterAndExpand"
+                                                         HorizontalOptions="Center"
+                                                         BackgroundColor="#fff"
+                                                         CommandParameter="{Binding .}"
+                                                         >
+                                                
+                                            </ImageButton>
+                                            <StackLayout
+                                                            HeightRequest="20"
+                                                            VerticalOptions="FillAndExpand"
+                                                            WidthRequest="20"
+                                                BackgroundColor="#ccc" >
+                                                
+                                                <Label          x:Name="lblNum"
+                                                                FontSize="16"
+                                                                HorizontalOptions="Center"
+                                                                Text="{Binding NUMBER}"
+                                                                TextColor="Black"
+                                                                VerticalOptions="CenterAndExpand"
+                                                                VerticalTextAlignment="Center">
+                                                                   
+                                                  
+                                                </Label>
+                                            </StackLayout>
+
+
+                                            <ImageButton HeightRequest="30" WidthRequest="30"
+                                                         Source="plus.png"  Clicked="ImageButton_Clicked_1"
+                                                         VerticalOptions="CenterAndExpand"
+                                                         HorizontalOptions="Center"
+                                                         BackgroundColor="#fff"
+                                                         CommandParameter="{Binding .}"
+                                                         >
+
+                                            </ImageButton>
+                                            <Label Text="{Binding STOCK, StringFormat='Kho: {0:#,0}'}" VerticalOptions="CenterAndExpand"
+                                                         HorizontalOptions="Center" FontSize="16"></Label>
+                                           
+                                        </StackLayout>
+
+                                    </StackLayout>
+                                    <Button Text="Xoá" TextColor="#000" VerticalOptions="Center" HorizontalOptions="Fill" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" BackgroundColor="Transparent" 
+                                             Clicked="Button_Clicked_1" CommandParameter="{Binding .}"></Button>
                                 </Grid>
                                 <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
-
+                                
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <FlexLayout HorizontalOptions="FillAndExpand" BackgroundColor="#ccc">
-                <Label Text="Tổng Tiền" FontSize="Large"></Label>
-                <Label Text="400.000.000đ" TextColor="red" FontSize="Large" Margin="10,0,0,0"></Label>
-            </FlexLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="0" x:Name="Total" IsVisible="false">
+                <StackLayout Spacing="0" Margin="0,0,10,0">
+                    <Label Text="Tổng Thanh Toán" FontSize="Large"></Label>
+                    <Label x:Name="total"  FontSize="Large" HorizontalOptions="End" TextColor="Red"></Label>
+                </StackLayout>
+                <Button Text="Thanh Toán"  HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked_2"></Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

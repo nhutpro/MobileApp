@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.DashBoardPage">
+             x:Class="MobileApp.Views.DashBoardPage"
+            >
     <ContentPage.Content>
         <StackLayout HeightRequest="400" Spacing="0">
             <Grid BackgroundColor="#306E51" Padding="0,10,0,10">
@@ -37,23 +38,27 @@
                                             <ColumnDefinition Width="*">
                                             </ColumnDefinition>
                                             <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
-                                        <Image x:Name="img" Source="{Binding Image}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" MinimumHeightRequest="200" MinimumWidthRequest="200"></Image>
-                                        <Label Text="{Binding Name}" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center"></Label>
-                                        <Label  Text="{Binding Price, StringFormat='{0:#,0} đ'}" Grid.Column="1" Grid.Row="1" TextColor="red" VerticalOptions="Center"></Label>
-
+                                        <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" MinimumHeightRequest="200" MinimumWidthRequest="200"></Image>
+                                        <Label Text="{Binding NAME}" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center"></Label>
+                                        <Label  Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" Grid.Column="1" Grid.Row="1" TextColor="red" VerticalOptions="Center"></Label>
+                                        <ImageButton BackgroundColor="#fff" Margin="0,0,10,0"
+                                            Source="cart.png" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
+                                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="ImageButton_Clicked"
+                                                     CommandParameter="{Binding .}"></ImageButton>
                                     </Grid>
                                     <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
                                     
                                 </StackLayout>
-                              
+                                
 
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <Button Text="Ấn Vào " Clicked="Button_Clicked" x:Name="button"></Button>
+          
         </StackLayout>
 
     </ContentPage.Content>

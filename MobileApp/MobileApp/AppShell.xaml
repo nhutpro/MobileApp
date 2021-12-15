@@ -71,8 +71,8 @@
         <Tab Title="Danh Mục" Icon="dashboard.png">
             <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:DashBoardPage}" />
         </Tab>
-        <Tab Title="Giỏ Hàng" Icon="cart.png">
-            <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:CartPage}" />
+        <Tab Title="Giỏ Hàng" Icon="cart.png" >
+            <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:CartPage} " />
         </Tab>
         <Tab Title="Thông Tin" Icon="user.png">
             <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:DashBoardPage}" />
