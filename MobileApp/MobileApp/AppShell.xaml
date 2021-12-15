@@ -75,7 +75,7 @@
             <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:CartPage}" />
         </Tab>
         <Tab Title="Thông Tin" Icon="user.png">
-            <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:DashBoardPage}" />
+            <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:UserPage}" />
         </Tab>
     </FlyoutItem>
 

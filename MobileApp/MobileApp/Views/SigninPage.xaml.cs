@@ -10,8 +10,10 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+    
     public partial class SigninPage : ContentPage
     {
+        public static User currentUser;
         public SigninPage()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace MobileApp.Views
                 {
                     if (user.UserName == UserName.Text && user.Password == Password.Text)
                     {
+                        currentUser = user;
                         DisplayAlert("Thong bao", "Dang nhap thanh cong!!!", "OK");
                         App.Current.MainPage = new AppShell();
 

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.UserPage">
+    <ContentPage.Content>
+        <StackLayout Spacing="0">
+            <Grid BackgroundColor="DarkGreen" Margin="0" HeightRequest="80">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="" 
+                   Grid.Row="0" Grid.Column="0"  Grid.RowSpan="2" VerticalOptions="Center"></Image>
+
+                <Label Text="Tên khách hàng" 
+                   Grid.Row="0" Grid.Column="1" VerticalOptions="End"></Label>
+
+                <Label Text="Email" 
+                   Grid.Row="1" Grid.Column="1" VerticalOptions="Start"></Label>
+
+                <Button x:Name="Infobtn" Clicked="Infobtn_Clicked"
+                    Text=">" FontSize="Large" 
+                    BackgroundColor="DarkGreen"
+                    Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
+                    VerticalOptions="Center" HorizontalOptions="Center"></Button>
+            </Grid>
+
+            <Grid BackgroundColor="DarkGreen" Margin="0" HeightRequest="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Yêu thích" 
+                   Grid.Row="0" Grid.Column="0" VerticalOptions="Center"
+                   HorizontalOptions="Center"></Label>
+
+                <Label Text="Đã thích" 
+                   Grid.Row="0" Grid.Column="1" VerticalOptions="Center"
+                   HorizontalOptions="Center"></Label>
+
+                <Label Text="Xu" 
+                   Grid.Row="0" Grid.Column="2" VerticalOptions="Center"
+                   HorizontalOptions="Center"></Label>
+            </Grid>
+
+            <Grid Margin="0, 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Đơn hàng" FontAttributes="Bold" 
+                   Grid.Row="0" Grid.Column="0" VerticalOptions="Center"
+                   HorizontalOptions="Start"></Label>
+
+                <Button Text="Xem tất cả đơn hàng >" 
+                    TextColor="Gray" BackgroundColor="White" 
+                    Grid.Row="0" Grid.Column="1"
+                    VerticalOptions="Center" HorizontalOptions="End"></Button>
+
+            </Grid>
+
+            <Grid Margin="0, 10">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image Source="checked.png"    
+                       Grid.Row="1" Grid.Column="0" 
+                       VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                
+                <Image Source="delivery_truck.png"    
+                       Grid.Row="1" Grid.Column="0" 
+                       VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                
+                <Image Source="box.png"    
+                       Grid.Row="1" Grid.Column="0" 
+                       VerticalOptions="Center" HorizontalOptions="Center"></Image>
+                
+                <Image Source="recycle.png"    
+                       Grid.Row="1" Grid.Column="0" 
+                       VerticalOptions="Center" HorizontalOptions="Center"></Image>
+
+                <Label Text="Mới đặt" 
+                   Grid.Row="1" Grid.Column="0" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+                <Label Text="Đang xử lý"
+                   Grid.Row="1" Grid.Column="1" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+                <Label Text="Thành công"
+                   Grid.Row="1" Grid.Column="2"
+                   VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+                <Label Text="Đã hủy"
+                   Grid.Row="1" Grid.Column="3"
+                   VerticalOptions="Center" HorizontalOptions="Center"></Label>
+
+            </Grid>
+
+            <Button Text="Đăng Xuất" 
+                    TextColor="Gray" BackgroundColor="White" BorderWidth="1" BorderColor="Black" WidthRequest="400"
+                    Grid.Row="0" Grid.Column="1"
+                    VerticalOptions="End" HorizontalOptions="Center"></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

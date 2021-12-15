@@ -5,7 +5,7 @@ using SQLite;
 
 namespace MobileApp.Views
 {
-    class User
+    public class User
     {
 
         [PrimaryKey, AutoIncrement]

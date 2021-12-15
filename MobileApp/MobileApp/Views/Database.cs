@@ -58,5 +58,20 @@ namespace MobileApp.Views
                 return null;
             }
         }
+
+        public List<User> ChangeUserInfo(User user)
+        {
+            try
+            {
+                string path = System.IO.Path.Combine(folder, "database.db");
+                var connection = new SQLiteConnection(path);
+
+                return connection.Query<User>("UPDATE User SET UserFullName = '" + user.UserFullName.ToString() + "', UserDoB = '" + user.UserDoB.ToString() + "', BookPrice = '" + user.UserGender.ToString() + "' WHERE UserID = " + user.UserID.ToString());
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
