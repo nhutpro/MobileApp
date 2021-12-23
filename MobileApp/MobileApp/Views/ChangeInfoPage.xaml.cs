@@ -32,7 +32,7 @@ namespace MobileApp.Views
             user.Gender = Gender.Text;
 
             HttpClient http = new HttpClient();
-            var send = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/ChangeUserInfo?userid=" + SigninPage.currentUser.UserID + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=" + Gender.Text + "&birthday=" + DateofBirth.Text + "&address=" + Address.Text + "");
+            var send = await http.GetStringAsync("http://192.168.1.8/MobileAPI/api/ServiceController/ChangeUserInfo?userid=" + SigninPage.currentUser.UserID + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=" + Gender.Text + "&birthday=" + DateofBirth.Text + "&address=" + Address.Text + "");
 
 
             await Navigation.PushAsync(new UserPage());

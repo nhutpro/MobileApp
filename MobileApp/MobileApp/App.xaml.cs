@@ -8,14 +8,14 @@ namespace MobileApp
 {
     public partial class App : Application
     {
-        public static string UserID { get; set; }
+        public static int UserID { get; set; }
         public App()
         {
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
             
-            UserID = "USE01";
+         
 
             MainPage = new NavigationPage (new SigninPage());
           

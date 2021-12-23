@@ -29,7 +29,7 @@ namespace MobileApp.Views
         async void initUsers()
         {
             HttpClient http = new HttpClient();
-            string UsersList = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/GetUser");
+            string UsersList = await http.GetStringAsync("http://192.168.1.8/MobileAPI/api/ServiceController/GetUser");
             users = JsonConvert.DeserializeObject<List<User>>(UsersList);
         }
 
@@ -44,7 +44,13 @@ namespace MobileApp.Views
                     {
                         currentUser = user;
                         DisplayAlert("Thong bao", "Dang nhap thanh cong!!!", "OK");
-                        App.Current.MainPage = new AppShell();
+                        if(user.Role == "admin")
+                        {
+                            App.Current.MainPage = new AdminPage();
+                            App.UserID = user.UserID;
+                        }
+                        else
+                            App.Current.MainPage = new AppShell();
 
                     }
                 }

@@ -22,13 +22,13 @@ namespace MobileApp.Views
         async void initUsers()
         {
             HttpClient http = new HttpClient();
-            string UsersList = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/GetUser");
+            string UsersList = await http.GetStringAsync("http://192.168.1.8/MobileAPI/api/ServiceController/GetUser");
             users = JsonConvert.DeserializeObject<List<User>>(UsersList);
         }
         /*async void addUsers(string username, string password, string fullname, string email, string phone, string gender, string birthday, string role)
         {
             HttpClient http = new HttpClient();
-            string UsersList = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/AddUser?username={" + username + "}&password={" + password + "}&fullname={" + fullname + "}&email={" + email + "}&phone={" + phone + "}&gender={" + gender + "}&birthday={" + birthday + "}&role={" + role + "}");
+            string UsersList = await http.GetStringAsync("http://192.168.1.8/MobileAPI/api/ServiceController/AddUser?username={" + username + "}&password={" + password + "}&fullname={" + fullname + "}&email={" + email + "}&phone={" + phone + "}&gender={" + gender + "}&birthday={" + birthday + "}&role={" + role + "}");
         }*/
         async void RegisterBtn_Clicked(object sender, EventArgs e)
         {
@@ -41,7 +41,7 @@ namespace MobileApp.Views
                 }
             }
             HttpClient http = new HttpClient();
-            var send = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=Nam&birthday=" + DateofBirth.Text + "&role=User");
+            var send = await http.GetStringAsync("http://192.168.1.8/MobileAPI/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=Nam&birthday=" + DateofBirth.Text + "&role=User");
             
             await DisplayAlert("Thong bao", "Tao tai khoan thanh cong!!!", "OK");
 
