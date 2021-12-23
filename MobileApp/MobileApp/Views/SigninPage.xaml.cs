@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace MobileApp.Views
 {
@@ -13,22 +15,26 @@ namespace MobileApp.Views
     public partial class SigninPage : ContentPage
     {
         public static User currentUser;
+        public List<User> users;
         public SigninPage()
         {
             InitializeComponent();
+            initUsers();
         }
 
         private void RegisterBtn_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new SignupPage());
         }
+        async void initUsers()
+        {
+            HttpClient http = new HttpClient();
+            string UsersList = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/GetUser");
+            users = JsonConvert.DeserializeObject<List<User>>(UsersList);
+        }
 
         private void LogginBtn_Clicked(object sender, EventArgs e)
         {
-            List<User> users = new List<User>();
-            
-            Database db = new Database();
-            users = db.GetUser();
 
             if (UserName.Text != null && Password.Text != null)
             {

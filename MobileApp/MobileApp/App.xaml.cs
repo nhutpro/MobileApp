@@ -14,9 +14,8 @@ namespace MobileApp
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            Database db = new Database();
-            db.CreateDatabase();
-            MainPage = new AppShell();
+
+            MainPage = new NavigationPage (new SigninPage());
           
         }
 

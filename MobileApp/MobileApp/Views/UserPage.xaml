@@ -18,10 +18,10 @@
                 <Image Source="" 
                    Grid.Row="0" Grid.Column="0"  Grid.RowSpan="2" VerticalOptions="Center"></Image>
 
-                <Label Text="Tên khách hàng" 
+                <Label x:Name="FullName" Text="Tên khách hàng" 
                    Grid.Row="0" Grid.Column="1" VerticalOptions="End"></Label>
 
-                <Label Text="Email" 
+                <Label x:Name="UsernName" Text="Email" 
                    Grid.Row="1" Grid.Column="1" VerticalOptions="Start"></Label>
 
                 <Button x:Name="Infobtn" Clicked="Infobtn_Clicked"
@@ -29,29 +29,6 @@
                     BackgroundColor="DarkGreen"
                     Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
                     VerticalOptions="Center" HorizontalOptions="Center"></Button>
-            </Grid>
-
-            <Grid BackgroundColor="DarkGreen" Margin="0" HeightRequest="30">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-
-                <Label Text="Yêu thích" 
-                   Grid.Row="0" Grid.Column="0" VerticalOptions="Center"
-                   HorizontalOptions="Center"></Label>
-
-                <Label Text="Đã thích" 
-                   Grid.Row="0" Grid.Column="1" VerticalOptions="Center"
-                   HorizontalOptions="Center"></Label>
-
-                <Label Text="Xu" 
-                   Grid.Row="0" Grid.Column="2" VerticalOptions="Center"
-                   HorizontalOptions="Center"></Label>
             </Grid>
 
             <Grid Margin="0, 10">
@@ -86,20 +63,20 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Image Source="checked.png"    
-                       Grid.Row="1" Grid.Column="0" 
+                <Image Source="checked.png" WidthRequest="40"
+                       Grid.Row="0" Grid.Column="0" 
                        VerticalOptions="Center" HorizontalOptions="Center"></Image>
-                
-                <Image Source="delivery_truck.png"    
-                       Grid.Row="1" Grid.Column="0" 
+
+                <Image Source="delivery_truck.png" WidthRequest="40"
+                       Grid.Row="0" Grid.Column="1" 
                        VerticalOptions="Center" HorizontalOptions="Center"></Image>
-                
-                <Image Source="box.png"    
-                       Grid.Row="1" Grid.Column="0" 
+
+                <Image Source="box.png" WidthRequest="40"    
+                       Grid.Row="0" Grid.Column="2" 
                        VerticalOptions="Center" HorizontalOptions="Center"></Image>
-                
-                <Image Source="recycle.png"    
-                       Grid.Row="1" Grid.Column="0" 
+
+                <Image Source="recycle.png" WidthRequest="40"   
+                       Grid.Row="0" Grid.Column="3" 
                        VerticalOptions="Center" HorizontalOptions="Center"></Image>
 
                 <Label Text="Mới đặt" 
@@ -120,7 +97,7 @@
 
             </Grid>
 
-            <Button Text="Đăng Xuất" 
+            <Button Text="Đăng Xuất" x:Name="SignoutBtn" Clicked="SignoutBtn_Clicked"
                     TextColor="Gray" BackgroundColor="White" BorderWidth="1" BorderColor="Black" WidthRequest="400"
                     Grid.Row="0" Grid.Column="1"
                     VerticalOptions="End" HorizontalOptions="Center"></Button>

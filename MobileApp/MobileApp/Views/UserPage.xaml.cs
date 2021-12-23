@@ -15,11 +15,18 @@ namespace MobileApp.Views
         public UserPage()
         {
             InitializeComponent();
+            FullName.Text = SigninPage.currentUser.FullName;
+            UsernName.Text = SigninPage.currentUser.UserName;
         }
 
         private void Infobtn_Clicked(object sender, EventArgs e)
         {
+            Navigation.PushAsync(new ChangeInfoPage());
+        }
 
+        private void SignoutBtn_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SigninPage());
         }
     }
 }

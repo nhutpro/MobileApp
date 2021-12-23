@@ -7,10 +7,16 @@
             <Entry x:Name="FullName" Keyboard="Text" Placeholder="Họ và Tên"
                    WidthRequest="400" 
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
-            <Entry x:Name="UserName" Keyboard="Text" Placeholder="Email/Số điện thoại"
+            <Entry x:Name="UserName" Keyboard="Text" Placeholder="Tên đăng nhập"
                    WidthRequest="400" 
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
             <Entry x:Name="PassWord" Keyboard="Text" Placeholder="Mật khẩu" IsPassword="True"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+            <Entry x:Name="Email" Keyboard="Text" Placeholder="Email"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+            <Entry x:Name="Phone" Keyboard="Text" Placeholder="Số điện thoại"
                    WidthRequest="400" 
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
             <Entry x:Name="DateofBirth" Keyboard="Text" Placeholder="Ngày sinh"
