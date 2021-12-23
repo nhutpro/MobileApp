@@ -17,6 +17,7 @@ namespace MobileApp
             Database db = new Database();
             db.CreateDatabase();
             MainPage = new AppShell();
+            UserID = "USE01";
           
         }
 

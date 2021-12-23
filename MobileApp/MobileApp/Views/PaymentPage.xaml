@@ -45,14 +45,13 @@
                                     <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HeightRequest="100" WidthRequest="100" VerticalOptions="CenterAndExpand"></Image>
                                     <Label Text="{Binding NAME}" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center"></Label>
                                     <Label  Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" Grid.Column="1" Grid.Row="1" TextColor="red" VerticalOptions="Center"></Label>
-                                    <Label Text="X2" BackgroundColor="#fff" Margin="0,0,10,0"
+                                    <Label Text="{Binding NUMBER,StringFormat='X {0:#,0}'}" BackgroundColor="#fff" Margin="0,0,10,0"
                                              Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
                                                      HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"></Label>
                                 </Grid>
                                 <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
 
                             </StackLayout>
-
 
                         </ViewCell>
                     </DataTemplate>
@@ -71,7 +70,7 @@
                     <Label Text="Tổng Thanh Toán" FontSize="Large"></Label>
                     <Label x:Name="total" FontSize="Large" HorizontalOptions="End" ></Label>
                 </StackLayout>
-                <Button Text="Đặt Hàng"  HorizontalOptions="Center" VerticalOptions="Center"></Button>
+                <Button Text="Đặt Hàng"  HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked"></Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

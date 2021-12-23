@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.RevenuePagexaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition>
+                    </ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Text="Tháng" Grid.Column="0" Grid.Row="0" FontSize="Medium" VerticalOptions="Center"></Label>
+                <Picker x:Name="pkMonth" Grid.Column="1" Grid.Row="0" VerticalOptions="Center"></Picker>
+                <Label Text="Năm" Grid.Column="0" Grid.Row="1" VerticalOptions="Center" FontSize="Medium"></Label>
+                <Entry Placeholder="Nhập năm" Grid.Column="1" Grid.Row="1" HeightRequest="70"></Entry>
+            </Grid>
+            <Button x:Name="revenue" Text="Xem doanh thu" WidthRequest="200" HorizontalOptions="Center"></Button>
+            <StackLayout Spacing="0">
+                <ListView x:Name="listRevenue">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout  Padding="0" Spacing="0" Margin="0">
+                                    <Grid   Margin="0" RowSpacing="0" >
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*">
+                                            </ColumnDefinition>
+                                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            
+                                            
+                                        </Grid.ColumnDefinitions>
+                                        <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0"  HeightRequest="100" WidthRequest="200"></Image>
+                                        <StackLayout Spacing="0" Grid.Column="1" Grid.Row="0">
+                                            <StackLayout Spacing="0" Orientation="Horizontal">
+                                                <Label Text="Mã đơn hàng:" FontSize="Medium"></Label>
+                                                <Label Text="{Binding ORDERID}" FontSize="Medium" Margin="10,0,0,0"></Label>
+                                            </StackLayout>
+                                            <StackLayout Spacing="0" Orientation="Vertical">
+                                                <Label Text="{Binding NAME}" FontSize="Medium"></Label>
+                                                <StackLayout Spacing="0" Orientation="Horizontal">
+                                                    <Label Text="{Binding NUMBER, StringFormat='SL: {0:#}'}" FontSize="Medium" Margin="5,0,0,0"></Label>
+                                                    <Label Text="{Binding STOCK, StringFormat='Kho: {0:#}'}" FontSize="Medium" Margin="5,0,0,0"></Label>
+                                                </StackLayout>
+                                                
+                                            </StackLayout>
+                                            <Label Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" TextColor="red" FontSize="Medium"></Label>
+                                        </StackLayout>
+                                        
+                                    </Grid>
+                                    <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
+
+                                </StackLayout>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <StackLayout Spacing="0">
+                    <StackLayout Spacing="0" Orientation="Horizontal">
+                        <Label Text="Tổng đơn hàng"></Label>
+                        <Label Text="40"></Label>
+                    </StackLayout>
+                    <StackLayout Spacing="0" Orientation="Horizontal">
+                        <Label Text="Tổng doanh thu"></Label>
+                        <Label Text="400000đ"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
