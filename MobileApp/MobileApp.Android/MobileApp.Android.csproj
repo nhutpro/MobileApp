@@ -141,6 +141,9 @@
     <AndroidResource Include="Resources\drawable\checked.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\hasaki.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\orderdelivery.png" />
   </ItemGroup>
   <ItemGroup>

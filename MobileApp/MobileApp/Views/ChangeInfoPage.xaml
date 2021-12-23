@@ -13,7 +13,7 @@
                     <ColumnDefinition Width="3*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Email" 
+                <Label Text="Username" 
                        Grid.Row="0" Grid.Column="1" VerticalOptions="Start"></Label>
 
             </Grid>
@@ -22,14 +22,25 @@
                    WidthRequest="400" 
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
 
+            <Entry x:Name="Email" Keyboard="Text" Placeholder="Email"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+
+            <Entry x:Name="Phone" Keyboard="Text" Placeholder="Số điện thoại"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+
             <Entry x:Name="DateofBirth" Keyboard="Text" Placeholder="Ngày sinh"
                    WidthRequest="400" 
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
 
-            <StackLayout>
-                <RadioButton Content="Nam" GroupName="Gender"></RadioButton>
-                <RadioButton Content="Nữ" GroupName="Gender"></RadioButton>
-            </StackLayout>
+            <Entry x:Name="Gender" Keyboard="Text" Placeholder="Giới tính"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+
+            <Entry x:Name="Address" Keyboard="Text" Placeholder="Địa chỉ"
+                   WidthRequest="400" 
+                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
 
             <Button x:Name="ChangeBtn" Text="Thay Đổi Thông Tin" Clicked="ChangeBtn_Clicked"
                     WidthRequest="400" TextColor="White" BackgroundColor="DarkGreen" 

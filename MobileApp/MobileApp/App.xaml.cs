@@ -14,10 +14,10 @@ namespace MobileApp
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            Database db = new Database();
-            db.CreateDatabase();
-            MainPage = new AppShell();
+            
             UserID = "USE01";
+
+            MainPage = new NavigationPage (new SigninPage());
           
         }
 

@@ -4,6 +4,8 @@
              x:Class="MobileApp.Views.SigninPage">
     <ContentPage.Content>
         <StackLayout>
+            <Image Source="hasaki.vn" WidthRequest="400" Margin="20"></Image>
+            
             <Entry x:Name="UserName" Keyboard="Text" Placeholder="Email/Số điện thoại" WidthRequest="400"></Entry>
 
             <Entry x:Name="Password" Keyboard="Text" IsPassword="True" Placeholder="Mật khẩu" WidthRequest="400"></Entry>
