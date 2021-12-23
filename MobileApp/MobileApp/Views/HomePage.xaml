@@ -4,28 +4,47 @@
              x:Class="MobileApp.Views.HomePage">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout BackgroundColor="Green" Padding="8">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Entry Placeholder="Tìm kiếm" Grid.Row="0" Grid.Column="0" BackgroundColor="White"/>
-                    <Label Text="Check giá" Grid.Row="0" Grid.Column="1" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                    <Label Text="Chọn khu vực" Grid.Row="0" Grid.Column="2" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                    <Label Text="Kiểm tra đơn hàng" Grid.Row="0" Grid.Column="3" TextColor="White" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                </Grid>
-            </StackLayout>
-            <ScrollView HeightRequest="700">
+            <ScrollView>
                 <StackLayout>
-                    <RelativeLayout BackgroundColor="Aqua">
-                        <ListView x:Name="lst"
+                    <Image Source="ban.jpg" HeightRequest="220" Margin="10"/>
+                    <Label Text="Sản phẩm nổi bậc" FontAttributes="Bold" FontSize="Large" TextColor="Green" />
+                    <RelativeLayout >
+                        <ListView x:Name="featureList"
+                                  CachingStrategy="RecycleElement"
+                                  RowHeight="250"
+                                  Rotation="270"
+                                  RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.5, Constant=-120}"
+                                  RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.5, Constant=150}"
+                                  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,  Factor=1}"
+                                  RelativeLayout.WidthConstraint="{ConstraintExpression Type=Constant, Constant=270}"
+                                  ItemSelected="featureList_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame Margin="5" CornerRadius="10">
+                                            <Grid Rotation="90">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="5*"/>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Margin="2"/>
+                                                <Label Text="{Binding NAME}" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
+                                                <Label Text="{Binding PRICE,StringFormat='{0:#,0} đ'}" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="red"/>
+                                            </Grid>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </RelativeLayout>
+                    <Label Text="Giá rẻ" FontAttributes="Bold" FontSize="Large" TextColor="Green"/>
+                    <RelativeLayout >
+                        <ListView x:Name="asclist"
                                   CachingStrategy="RecycleElement"
                                   RowHeight="250"
                                   Rotation="270"
@@ -36,21 +55,27 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
-                                        <ContentView WidthRequest="200" Rotation="90">
-                                            <Label Text="{Binding ID}" TextColor="Blue" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                                        </ContentView>
+                                        <Frame Margin="5" CornerRadius="10">
+                                            <Grid Rotation="90">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="5*"/>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Margin="5"/>
+                                                <Label Text="{Binding NAME}" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
+                                                <Label Text="{Binding PRICE,StringFormat='{0:#,0} đ'}" Grid.Row="2" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" TextColor="Red"/>
+                                            </Grid>
+                                        </Frame>
                                     </ViewCell>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
                     </RelativeLayout>
-                    <BoxView HeightRequest="300" BackgroundColor="Red" ></BoxView>
-                    <BoxView HeightRequest="300" BackgroundColor="Yellow" ></BoxView>
-                    <BoxView HeightRequest="300" BackgroundColor="Red" ></BoxView>
-                    <BoxView HeightRequest="300" BackgroundColor="Yellow" ></BoxView>
-                    <BoxView HeightRequest="300" BackgroundColor="Red" ></BoxView>
-                    <BoxView HeightRequest="300" BackgroundColor="Yellow" ></BoxView>
-                    <BoxView HeightRequest="300" BackgroundColor="Red" ></BoxView>
                 </StackLayout>
             </ScrollView>
         </StackLayout>

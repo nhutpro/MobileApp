@@ -24,7 +24,7 @@ namespace MobileApp.Views
         {
             List<Orders> listOrder = new List<Orders>();
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/order/all?UserID=" + App.UserID);
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/all?UserID=" + App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
             LskOrders.ItemsSource = productlistConvert;
      
@@ -35,7 +35,7 @@ namespace MobileApp.Views
         {
             List<Orders> listOrder = new List<Orders>();
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/order/running?UserID=" + App.UserID);
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/running?UserID=" + App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
             LskOrders.ItemsSource = productlistConvert;
         }
@@ -44,7 +44,7 @@ namespace MobileApp.Views
         {
             List<Orders> listOrder = new List<Orders>();
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/order/success?UserID=" + App.UserID);
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/success?UserID=" + App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
             LskOrders.ItemsSource = productlistConvert;
         }
@@ -53,7 +53,7 @@ namespace MobileApp.Views
         {
             List<Orders> listOrder = new List<Orders>();
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/order/fail?UserID=" + App.UserID);
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/MobileAPI/order/fail?UserID=" + App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
             LskOrders.ItemsSource = productlistConvert;
         }

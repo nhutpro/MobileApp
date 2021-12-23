@@ -24,7 +24,7 @@ namespace MobileApp.Views
         {
             List<Orders> listOrder = new List<Orders>();
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://192.168.1.8/MobileAPI/order/success?UserID=" + App.UserID);
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/success?UserID=" + App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
             listRevenue.ItemsSource = productlistConvert;
         }

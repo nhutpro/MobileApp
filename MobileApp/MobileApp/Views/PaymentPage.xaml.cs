@@ -26,7 +26,7 @@ namespace MobileApp.Views
         {
             sum = 0;
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/cart?userID="+ App.UserID);
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/MobileAPI/cart?userID="+ App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<CartItems>>(productlist);
           
                 listpayment.ItemsSource = productlistConvert;
@@ -47,7 +47,7 @@ namespace MobileApp.Views
             {
                 HttpClient httpClient = new HttpClient();
               
-               var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/order/add?UserID=" + App.UserID + "&ProID=" + item.PRODUCTID + "&number=" + item.NUMBER);
+               var productlist = await httpClient.GetStringAsync($"{App.Localhost}/MobileAPI/order/add?UserID=" + App.UserID + "&ProID=" + item.PRODUCTID + "&number=" + item.NUMBER);
             }
           await Navigation.PopAsync();
         }

@@ -30,7 +30,7 @@ namespace MobileApp.Views
 
             sum = 0;
             HttpClient httpClientcart = new HttpClient();
-            var productlist = await httpClientcart.GetStringAsync("http://172.23.96.1/MobileAPI/cart?UserID=" + App.UserID);
+            var productlist = await httpClientcart.GetStringAsync($"{App.Localhost}/cart?UserID=" + App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<CartItems>>(productlist);
             
             if (productlistConvert.Count == 0)
@@ -72,7 +72,7 @@ namespace MobileApp.Views
             else
             {
                 HttpClient httpClient = new HttpClient();
-                var send = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/cart/subtract?userID="+ App.UserID + "&procID=" + selectedPro.PRODUCTID);
+                var send = await httpClient.GetStringAsync($"{App.Localhost}/cart/subtract?userID="+ App.UserID + "&procID=" + selectedPro.PRODUCTID);
                 sum = sum - selectedPro.PRICE;
                 label.Text = (Int32.Parse(label.Text) - 1).ToString();
                 total.Text = String.Format("{0:#,0}", sum) + "đ";
@@ -94,7 +94,7 @@ namespace MobileApp.Views
             else
             {
                 HttpClient httpClient = new HttpClient();
-                var send = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/cart/plus?userID=" + App.UserID + "&procID=" + selectedPro.PRODUCTID);
+                var send = await httpClient.GetStringAsync($"{App.Localhost}/cart/plus?userID=" + App.UserID + "&procID=" + selectedPro.PRODUCTID);
                 sum = sum + selectedPro.PRICE;
                 label.Text = (Int32.Parse(label.Text) + 1).ToString();
                 total.Text = String.Format("{0:#,0}", sum) + "đ";
@@ -109,7 +109,7 @@ namespace MobileApp.Views
             Button button = (Button)sender;
             CartItems selectedPro = button.CommandParameter as CartItems;
             HttpClient httpClient = new HttpClient();
-            var send = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/cart/delete?userID=" + App.UserID + "&procID=" + selectedPro.PRODUCTID);
+            var send = await httpClient.GetStringAsync($"{App.Localhost}/cart/delete?userID=" + App.UserID + "&procID=" + selectedPro.PRODUCTID);
             ListInit();
             
         }

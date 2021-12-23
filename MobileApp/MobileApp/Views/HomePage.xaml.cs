@@ -1,6 +1,9 @@
-﻿using System;
+﻿using MobileApp.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,22 +17,29 @@ namespace MobileApp.Views
     {
         List<Product> products = new List<Product>();
 
-        void init()
+        async void init()
         {
-            products.Add(new Product { ID = 1 });
-            products.Add(new Product { ID = 2 });
-            products.Add(new Product { ID = 3 });
-            products.Add(new Product { ID = 4 });
-            products.Add(new Product { ID = 5 });
-            products.Add(new Product { ID = 6 });
-            products.Add(new Product { ID = 7 });
-            lst.ItemsSource = products;
+            HttpClient http = new HttpClient();
+
+            string ProductsList = await http.GetStringAsync($"{App.Localhost}/product/GetProductsByPriceDesc");
+            List<Products> featuredListConverted = JsonConvert.DeserializeObject<List<Products>>(ProductsList);
+
+            ProductsList = await http.GetStringAsync($"{App.Localhost}/product/GetProductsByPriceAsc");
+            List<Products> ascListConverted = JsonConvert.DeserializeObject<List<Products>>(ProductsList);
+
+            featureList.ItemsSource = featuredListConverted;
+            asclist.ItemsSource = ascListConverted;
         }
 
         public HomePage()
         {
             InitializeComponent();
             init();
+        }
+        private void featureList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Products p = (Products)e.SelectedItem;
+            Navigation.PushAsync(new ProductPage(p));
         }
     }
 }

@@ -18,11 +18,12 @@ namespace MobileApp.Views
         {
             InitializeComponent();
             initUsers();
+            
         }
         async void initUsers()
         {
             HttpClient http = new HttpClient();
-            string UsersList = await http.GetStringAsync("http://192.168.1.8/MobileAPI/api/ServiceController/GetUser");
+            string UsersList = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/GetUser");
             users = JsonConvert.DeserializeObject<List<User>>(UsersList);
         }
         /*async void addUsers(string username, string password, string fullname, string email, string phone, string gender, string birthday, string role)
@@ -41,7 +42,7 @@ namespace MobileApp.Views
                 }
             }
             HttpClient http = new HttpClient();
-            var send = await http.GetStringAsync("http://192.168.1.8/MobileAPI/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=Nam&birthday=" + DateofBirth.Text + "&role=User");
+            var send = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=Nam&birthday=" + DateofBirth.Text + "&role=User");
             
             await DisplayAlert("Thong bao", "Tao tai khoan thanh cong!!!", "OK");
 
@@ -49,6 +50,7 @@ namespace MobileApp.Views
 
         private void LogginBtn_Clicked(object sender, EventArgs e)
         {
+           
             Navigation.PushAsync(new SigninPage());
         }
     }

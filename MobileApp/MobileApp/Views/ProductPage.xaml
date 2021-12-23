@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.ProductPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView HeightRequest="700">
+                <StackLayout>
+                    <Image x:Name="ProductImg" HeightRequest="350"/>
+                    <Label x:Name="NameLbl" Text="Tên Sản phẩm" FontSize="Title" TextColor="Green" Margin="20" FontAttributes="Bold"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Thương hiệu" Margin="5" Grid.Row="0" Grid.Column="0" FontSize="Large" HorizontalOptions="End"/>
+                        <Label x:Name="BrandLbl" Margin="5" FontSize="Large" Grid.Row="0" Grid.Column="1"/>
+                        <Label x:Name="PriceLbl" Margin="5" FontSize="Large" TextColor="red" Grid.Row="1" Grid.Column="0" HorizontalOptions="End"/>
+                        <Label Text="Đồng" Margin="5" FontSize="Large" Grid.Row="1" Grid.Column="1"/>
+                        <Label Text="Còn" Grid.Row="2" Grid.Column="0" FontSize="Large" HorizontalOptions="End"/>
+                        <Label x:Name="StockLbl"  Grid.Row="2" Grid.Column="1" FontSize="Large"/>
+                    </Grid>
+                    <Label x:Name="DescriptionLbl" FontSize="Large" Margin="10"/>
+                </StackLayout>
+            </ScrollView>
+            <Button x:Name="addToCartBtn" Text="Thêm vào giỏ hàng" FontSize="Medium" BackgroundColor="Green" Margin="20" Clicked="addToCartBtn_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

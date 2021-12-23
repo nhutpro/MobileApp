@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.SignupPage">
+             x:Class="MobileApp.Views.SignupPage"
+             NavigationPage.HasNavigationBar = "false"
+             >
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout  Margin="0,0,0,0" BackgroundColor="White">
             <Entry x:Name="FullName" Keyboard="Text" Placeholder="Họ và Tên"
                    WidthRequest="400" 
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>

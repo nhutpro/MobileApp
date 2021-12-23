@@ -17,6 +17,7 @@ namespace MobileApp.Views
             InitializeComponent();
             FullName.Text = SigninPage.currentUser.FullName;
             UsernName.Text = SigninPage.currentUser.UserName;
+
         }
 
         private void Infobtn_Clicked(object sender, EventArgs e)
@@ -26,7 +27,8 @@ namespace MobileApp.Views
 
         private void SignoutBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new SigninPage());
+            App.Current.MainPage = new NavigationPage(new SigninPage());
+           
         }
     }
 }

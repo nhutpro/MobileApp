@@ -27,7 +27,7 @@ namespace MobileApp.Views
         async void LisInit()
         {
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/hello");
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/hello");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
             LskItems.ItemsSource = productlistConvert;
            
@@ -38,7 +38,7 @@ namespace MobileApp.Views
         {   ImageButton button = (ImageButton)sender;
             Products product = button.CommandParameter as Products;
             HttpClient httpClient = new HttpClient();
-            String addCart = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/product/addcart?UserID="+ App.UserID +"&ProID=" + product.PRODUCTID); 
+            String addCart = await httpClient.GetStringAsync($"{App.Localhost}/product/addcart?UserID=" + App.UserID +"&ProID=" + product.PRODUCTID); 
             await DisplayAlert("Thông Báo", "Thêm thành công", "OK");
             
         }
@@ -47,7 +47,7 @@ namespace MobileApp.Views
         {
             resetColor();
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/hello");
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/hello");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
             LskItems.ItemsSource = productlistConvert.Where(c => Regex.Match(c.NAME, $"^{Search.Text}").Success);
         }
@@ -58,7 +58,7 @@ namespace MobileApp.Views
             resetColor();
             button.BackgroundColor = Color.FromHex("008000");
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/product/kemchongnang");
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/kemchongnang");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
             LskItems.ItemsSource = productlistConvert;
         }
@@ -74,7 +74,7 @@ namespace MobileApp.Views
             resetColor();
             button.BackgroundColor = Color.FromHex("008000");
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/product/serum");
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/serum");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
             LskItems.ItemsSource = productlistConvert;
         }
@@ -85,7 +85,7 @@ namespace MobileApp.Views
             resetColor();
             button.BackgroundColor = Color.FromHex("008000");
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/product/toner");
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/toner");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
             LskItems.ItemsSource = productlistConvert;
         }
@@ -96,7 +96,7 @@ namespace MobileApp.Views
             resetColor();
             button.BackgroundColor = Color.FromHex("008000");
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.23.96.1/MobileAPI/product/kemchongnang");
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/kemchongnang");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
             LskItems.ItemsSource = productlistConvert;
         }

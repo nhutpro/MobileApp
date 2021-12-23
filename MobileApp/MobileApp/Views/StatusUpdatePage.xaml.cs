@@ -25,7 +25,7 @@ namespace MobileApp.Views
 
             List<Orders> listOrder = new List<Orders>();
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://192.168.1.8/MobileAPI/order/running?UserID=" + App.UserID);
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/running?UserID=" + App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
             ListOrders.ItemsSource = productlistConvert;
         }
@@ -35,7 +35,7 @@ namespace MobileApp.Views
             ImageButton button = (ImageButton)sender;
             Orders product = button.CommandParameter as Orders;
             HttpClient httpClient = new HttpClient();
-            String addCart = await httpClient.GetStringAsync("http://192.168.1.8/MobileAPI/order/successstatus?UserID="+App.UserID+"&OrderID="+ product.ORDERID);
+            String addCart = await httpClient.GetStringAsync($"{App.Localhost}/order/successstatus?UserID="+App.UserID+"&OrderID="+ product.ORDERID);
             await DisplayAlert("Thông Báo", "cập nhật thành công", "OK");
             listInit();
         }
@@ -45,7 +45,7 @@ namespace MobileApp.Views
             ImageButton button = (ImageButton)sender;
             Orders product = button.CommandParameter as Orders;
             HttpClient httpClient = new HttpClient();
-            String addCart = await httpClient.GetStringAsync("http://192.168.1.8/MobileAPI/order/failstatus?UserID=" + App.UserID + "&OrderID=" + product.ORDERID);
+            String addCart = await httpClient.GetStringAsync($"{App.Localhost}/order/failstatus?UserID=" + App.UserID + "&OrderID=" + product.ORDERID);
             await DisplayAlert("Thông Báo", "Thêm nhật thành công", "OK");
             listInit();
         }
