@@ -26,7 +26,7 @@ namespace MobileApp.Views
         {
             sum = 0;
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/MobileAPI/cart?userID="+ App.UserID);
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/cart?userID="+ App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<CartItems>>(productlist);
           
                 listpayment.ItemsSource = productlistConvert;
@@ -37,8 +37,15 @@ namespace MobileApp.Views
                    
                 }
                 total.Text = String.Format("{0:#,0}", sum + (float)30000) + "đ";
-       
-
+         
+            var userlist = await httpClient.GetStringAsync($"{App.Localhost}/user/getbyid?userID=" + App.UserID);
+            List<User>  userlistConvert = JsonConvert.DeserializeObject<List<User>>(userlist);
+            await DisplayAlert("Thong bao", userlistConvert.Count.ToString(), "OK");
+            /*
+            User user = userlistConvert.ElementAt(0);
+            name.Text = user.FullName;
+            phone.Text = user.Phone;*/
+            
         }
 
       async  private void Button_Clicked(object sender, EventArgs e)
@@ -47,7 +54,7 @@ namespace MobileApp.Views
             {
                 HttpClient httpClient = new HttpClient();
               
-               var productlist = await httpClient.GetStringAsync($"{App.Localhost}/MobileAPI/order/add?UserID=" + App.UserID + "&ProID=" + item.PRODUCTID + "&number=" + item.NUMBER);
+               var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/add?UserID=" + App.UserID + "&ProID=" + item.PRODUCTID + "&number=" + item.NUMBER);
             }
           await Navigation.PopAsync();
         }

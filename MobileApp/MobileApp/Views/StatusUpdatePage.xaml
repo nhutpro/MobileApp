@@ -4,7 +4,7 @@
              x:Class="MobileApp.Views.StatusUpdatePage">
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar></SearchBar>
+            <SearchBar x:Name="search"  Placeholder="Nhập mã đơn hàng" CancelButtonColor="Orange" PlaceholderColor="#000" TextChanged="SearchBar_TextChanged"></SearchBar>
             <ListView  x:Name="ListOrders" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
                                        VerticalOptions="FillAndExpand">
                 <ListView.ItemTemplate>

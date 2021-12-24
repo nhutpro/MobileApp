@@ -47,7 +47,7 @@
                 <Button Text="Xem tất cả đơn hàng >" 
                     TextColor="Gray" BackgroundColor="White" 
                     Grid.Row="0" Grid.Column="1"
-                    VerticalOptions="Center" HorizontalOptions="End"></Button>
+                    VerticalOptions="Center" HorizontalOptions="End" Clicked="Button_Clicked"></Button>
 
             </Grid>
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using MobileApp.Models;
 using Newtonsoft.Json;
@@ -25,7 +26,7 @@ namespace MobileApp.Views
 
             List<Orders> listOrder = new List<Orders>();
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/running?UserID=" + App.UserID);
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/allrunning");
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
             ListOrders.ItemsSource = productlistConvert;
         }
@@ -35,7 +36,7 @@ namespace MobileApp.Views
             ImageButton button = (ImageButton)sender;
             Orders product = button.CommandParameter as Orders;
             HttpClient httpClient = new HttpClient();
-            String addCart = await httpClient.GetStringAsync($"{App.Localhost}/order/successstatus?UserID="+App.UserID+"&OrderID="+ product.ORDERID);
+            String addCart = await httpClient.GetStringAsync($"{App.Localhost}/order/successstatus?&OrderID="+ product.ORDERID);
             await DisplayAlert("Thông Báo", "cập nhật thành công", "OK");
             listInit();
         }
@@ -45,9 +46,17 @@ namespace MobileApp.Views
             ImageButton button = (ImageButton)sender;
             Orders product = button.CommandParameter as Orders;
             HttpClient httpClient = new HttpClient();
-            String addCart = await httpClient.GetStringAsync($"{App.Localhost}/order/failstatus?UserID=" + App.UserID + "&OrderID=" + product.ORDERID);
+            String addCart = await httpClient.GetStringAsync($"{App.Localhost}/order/failstatus?&OrderID=" + product.ORDERID);
             await DisplayAlert("Thông Báo", "Thêm nhật thành công", "OK");
             listInit();
+        }
+
+       async private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            HttpClient httpClient = new HttpClient();
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}//order/allrunning");
+            var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
+            ListOrders.ItemsSource = productlistConvert.Where(c => Regex.Match(c.ORDERID, $"^{search.Text}").Success);
         }
     }
 }

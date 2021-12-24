@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,9 +28,14 @@ namespace MobileApp.Views
             StockLbl.Text = p.STOCK.ToString();
         }
 
-        private void addToCartBtn_Clicked(object sender, EventArgs e)
+      async   private void addToCartBtn_Clicked(object sender, EventArgs e)
         {
             
+            HttpClient httpClient = new HttpClient();
+            String addCart = await httpClient.GetStringAsync($"{App.Localhost}/product/addcart?UserID=" + App.UserID + "&ProID=" + p.PRODUCTID);
+            await DisplayAlert("Thông Báo", "Thêm vào giỏ hàng thành công", "OK");
+            await Navigation.PopAsync();
+
         }
     }
 }

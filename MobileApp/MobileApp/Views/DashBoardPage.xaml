@@ -25,7 +25,7 @@
             </Grid>
             <StackLayout Spacing="0" >
                 <ListView  x:Name="LskItems" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
-                                       VerticalOptions="FillAndExpand">
+                                       VerticalOptions="FillAndExpand" ItemSelected="LskItems_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell >

@@ -39,7 +39,7 @@ namespace MobileApp.Views
             Products product = button.CommandParameter as Products;
             HttpClient httpClient = new HttpClient();
             String addCart = await httpClient.GetStringAsync($"{App.Localhost}/product/addcart?UserID=" + App.UserID +"&ProID=" + product.PRODUCTID); 
-            await DisplayAlert("Thông Báo", "Thêm thành công", "OK");
+            await DisplayAlert("Thông Báo", "Thêm vào giỏ hàng thành công", "OK");
             
         }
 
@@ -106,6 +106,15 @@ namespace MobileApp.Views
             resetColor();
             LisInit();
             
+
+
+        }
+
+        private void LskItems_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Products p = (Products)e.SelectedItem;
+            Navigation.PushAsync(new ProductPage(p));
+          
         }
     }
 }

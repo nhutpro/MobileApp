@@ -52,7 +52,11 @@ namespace MobileApp.Views
                            
                         }
                         else
+                        {
                             App.Current.MainPage = new AppShell();
+                            App.UserID = user.UserID;
+                        }    
+                            
 
                     }
                 }

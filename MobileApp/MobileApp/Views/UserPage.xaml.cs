@@ -30,5 +30,10 @@ namespace MobileApp.Views
             App.Current.MainPage = new NavigationPage(new SigninPage());
            
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new OrderPage());
+        }
     }
 }
