@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.UpdateProductPagexaml">
+  <ContentView.Content>
+      <StackLayout>
+            <ScrollView HeightRequest="700">
+                <StackLayout>
+                    <Image x:Name="ProductImg" HeightRequest="200"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Tên:" Grid.Row="0" Grid.Column="0" FontSize="Medium"></Label>
+                        <Entry x:Name="name" Placeholder="Tên sản phẩm"  Grid.Row="0" Grid.Column="1" FontSize="Medium"></Entry>
+                        <Label Text="Mô tả" Grid.Row="1" Grid.Column="0" FontSize="Medium"></Label>
+                        <Entry x:Name="description" Placeholder="Mô tả" Grid.Row="1" Grid.Column="1" FontSize="Medium"></Entry>
+                        <Label Text="Thương hiệu:" Margin="5" Grid.Row="2" Grid.Column="0" FontSize="Large" />
+                        <Entry x:Name="branch" Margin="5" FontSize="Large" Grid.Row="2" Grid.Column="1"/>
+                        <Label Text="Giá:" Grid.Row="3" Grid.Column="0" Margin="5" FontSize="Large"></Label>
+                        <Entry  x:Name="price" Margin="5" FontSize="Large" TextColor="red" Grid.Row="3" Grid.Column="1"/>
+                        <Label Text="Kho: " Grid.Row="4" Grid.Column="0" FontSize="Large" />
+                        <Entry x:Name="stock"  Grid.Row="4" Grid.Column="1" FontSize="Large"/>
+                    </Grid>
+
+                </StackLayout>
+    
+            </ScrollView>
+            <Button Text="Cập nhật"></Button>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

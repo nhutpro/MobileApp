@@ -33,7 +33,8 @@ namespace MobileApp.Views
                 }
             }
             FullName.Text = SigninPage.currentUser.FullName;
-            UserName.Text = SigninPage.currentUser.UserName;
+            UsernName.Text = SigninPage.currentUser.UserName;
+
         }
 
         private void Infobtn_Clicked(object sender, EventArgs e)
@@ -43,7 +44,13 @@ namespace MobileApp.Views
 
         private void SignoutBtn_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new SigninPage());
+            App.Current.MainPage = new NavigationPage(new SigninPage());
+           
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new OrderPage());
         }
     }
 }

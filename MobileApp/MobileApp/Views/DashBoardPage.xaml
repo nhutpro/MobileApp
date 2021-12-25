@@ -4,8 +4,9 @@
              x:Class="MobileApp.Views.DashBoardPage"
             >
     <ContentPage.Content>
-        <StackLayout HeightRequest="400" Spacing="0">
-            <Grid BackgroundColor="#306E51" Padding="0,10,0,10">
+        <StackLayout  Spacing="0">
+            <SearchBar x:Name="Search" Placeholder="Tìm Kiếm" CancelButtonColor="Orange" PlaceholderColor="#000" TextChanged="Search_TextChanged"></SearchBar>
+            <Grid BackgroundColor="#306E51" >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                 </Grid.RowDefinitions>
@@ -16,15 +17,15 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Text="Bán Chạy" Grid.Column="0" Grid.Row="0" FontSize="Medium" TextColor="#fff" VerticalOptions="Center" HorizontalOptions="Center">
-                </Label>
-                <Label Text="Hot" Grid.Column="1" Grid.Row="0" FontSize="Medium" TextColor="#fff" VerticalOptions="Center" HorizontalOptions="Center"></Label>
-                <Label Text="Giá Thấp" Grid.Column="2" Grid.Row="0" FontSize="Medium" TextColor="#fff" VerticalOptions="Center" HorizontalOptions="Center" ></Label>
-                <Label Text="Giá Cao" Grid.Column="3" Grid.Row="0" FontSize="Medium" TextColor="#fff"  VerticalOptions="Center" HorizontalOptions="Center"></Label>
+                <Button x:Name ="suaRuaMat"  Text="Sửa Rửa Mặt" Grid.Column="0" Grid.Row="0" BackgroundColor="#306E51" TextColor="#fff" VerticalOptions="Fill" HeightRequest="70" HorizontalOptions="Fill" Clicked="Button_Clicked">
+                </Button>
+                <Button x:Name="serum" Text="Serum" Grid.Column="1" Grid.Row="0" BackgroundColor="#306E51" TextColor="#fff" VerticalOptions="Fill"  HeightRequest="70" HorizontalOptions="Fill" Clicked="serum_Clicked"></Button>
+                <Button x:Name="Toner" Text="Toner" Grid.Column="2" Grid.Row="0" BackgroundColor="#306E51" TextColor="#fff" VerticalOptions="Fill"  HeightRequest="70" HorizontalOptions="Fill" Clicked="Toner_Clicked"></Button>
+                <Button x:Name="kemChongNang" Text="Kem Chống Nắng" Grid.Row="0" Grid.Column="3" BackgroundColor="#306E51" TextColor="#fff"  HeightRequest="70" VerticalOptions="Fill"   HorizontalOptions="Fill" Clicked="kemChongNang_Clicked"></Button>
             </Grid>
             <StackLayout Spacing="0" >
                 <ListView  x:Name="LskItems" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
-                                       VerticalOptions="FillAndExpand">
+                                       VerticalOptions="FillAndExpand" ItemSelected="LskItems_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell >
@@ -40,7 +41,7 @@
                                             <ColumnDefinition Width="2*"></ColumnDefinition>
                                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
-                                        <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" MinimumHeightRequest="200" MinimumWidthRequest="200"></Image>
+                                        <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HeightRequest="100" WidthRequest="100"></Image>
                                         <Label Text="{Binding NAME}" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center"></Label>
                                         <Label  Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" Grid.Column="1" Grid.Row="1" TextColor="red" VerticalOptions="Center"></Label>
                                         <ImageButton BackgroundColor="#fff" Margin="0,0,10,0"

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.AdminProductDetailPage">
+    <ContentPage.Content>
+
+
+            <StackLayout>
+            <ScrollView HeightRequest="700">
+                <StackLayout>
+                    <Image x:Name="ProductImg" HeightRequest="200"/>
+                    <Label x:Name="NameLbl" Text="Tên Sản phẩm" FontSize="Title" TextColor="Green" Margin="20" FontAttributes="Bold"/>
+                    <Label x:Name="DescriptionLbl" FontSize="Large" Margin="10"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Thương hiệu:" Margin="5" Grid.Row="0" Grid.Column="0" FontSize="Large" />
+                        <Label x:Name="branch" Margin="5" FontSize="Large" Grid.Row="0" Grid.Column="1"/>
+                        <Label Text="Giá:" Grid.Row="1" Grid.Column="0" Margin="5" FontSize="Large"></Label>
+                        <Label  x:Name="price" Margin="5" FontSize="Large" TextColor="red" Grid.Row="1" Grid.Column="1"/>
+
+                        <Label Text="Kho: " Grid.Row="2" Grid.Column="0" FontSize="Large" />
+                        <Label x:Name="stock"  Grid.Row="2" Grid.Column="1" FontSize="Large"/>
+                    </Grid>
+
+                </StackLayout>
+
+            </ScrollView>
+                    
+                
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Text="Xoá sản phẩm" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" Clicked="Button_Clicked"></Button>
+                <Button Text="Chỉnh sửa sản phẩm" HorizontalOptions="Center" Grid.Column="1" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
+            </Grid>
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

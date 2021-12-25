@@ -14,6 +14,7 @@ namespace MobileApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaymentPage : ContentPage
     {   float sum = 0;
+        List<CartItems> cartItemList= new List<CartItems>();
         public PaymentPage()
         {
             InitializeComponent();
@@ -25,23 +26,37 @@ namespace MobileApp.Views
         {
             sum = 0;
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.18.128.1/MobileAPI/cart?userID=USE01");
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/cart?userID="+ App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<CartItems>>(productlist);
           
                 listpayment.ItemsSource = productlistConvert;
-
+                cartItemList = productlistConvert;
                 foreach (CartItems item in productlistConvert)
                 {
                     sum = sum + (item.PRICE * item.NUMBER);
-                    await DisplayAlert("OK", item.NUMBER.ToString(), "OK");
+                   
                 }
                 total.Text = String.Format("{0:#,0}", sum + (float)30000) + "đ";
-       
+         
+            var userlist = await httpClient.GetStringAsync($"{App.Localhost}/user/getbyid?userID=" + App.UserID);
+            List<User>  userlistConvert = JsonConvert.DeserializeObject<List<User>>(userlist);
+            await DisplayAlert("Thong bao", userlistConvert.Count.ToString(), "OK");
+            /*
+            User user = userlistConvert.ElementAt(0);
+            name.Text = user.FullName;
+            phone.Text = user.Phone;*/
+            
+        }
 
-
-
-
-
+      async  private void Button_Clicked(object sender, EventArgs e)
+        {   
+            foreach(CartItems item in cartItemList)
+            {
+                HttpClient httpClient = new HttpClient();
+              
+               var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/add?UserID=" + App.UserID + "&ProID=" + item.PRODUCTID + "&number=" + item.NUMBER);
+            }
+          await Navigation.PopAsync();
         }
     }
 }

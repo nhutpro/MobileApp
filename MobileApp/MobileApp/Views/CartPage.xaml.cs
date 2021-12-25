@@ -18,6 +18,7 @@ namespace MobileApp.Views
         public CartPage()
         {  
             InitializeComponent();
+           
         }
         
         private void Button_Clicked(object sender, EventArgs e)
@@ -26,10 +27,12 @@ namespace MobileApp.Views
         }
         async public void ListInit()
         {
+
             sum = 0;
-            HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync("http://172.18.128.1/MobileAPI/cart?userID=USE01");
+            HttpClient httpClientcart = new HttpClient();
+            var productlist = await httpClientcart.GetStringAsync($"{App.Localhost}/cart?UserID=" + App.UserID);
             var productlistConvert = JsonConvert.DeserializeObject<List<CartItems>>(productlist);
+            
             if (productlistConvert.Count == 0)
             {
                 empty.IsVisible = true;
@@ -45,20 +48,20 @@ namespace MobileApp.Views
                 foreach (CartItems item in productlistConvert)
                 {
                     sum = sum + (item.PRICE * item.NUMBER);
-                   await DisplayAlert("OK", item.NUMBER.ToString(), "OK");
+                  
                 }
                 total.Text = String.Format("{0:#,0}", sum) + "đ";
                 Total.IsVisible = true;
 
 
             }
-       
-            
+        
+
 
         }
 
        async private void ImageButton_Clicked(object sender, EventArgs e)
-        {
+        {   
             ImageButton button = (ImageButton)sender;
             Label label = button.Parent.FindByName("lblNum") as Label;
             CartItems selectedPro = button.CommandParameter as CartItems;
@@ -69,7 +72,7 @@ namespace MobileApp.Views
             else
             {
                 HttpClient httpClient = new HttpClient();
-                var send = await httpClient.GetStringAsync("http://172.18.128.1/MobileAPI/cart/subtract?userID=USE01&procID="+selectedPro.PRODUCTID);
+                var send = await httpClient.GetStringAsync($"{App.Localhost}/cart/subtract?userID="+ App.UserID + "&procID=" + selectedPro.PRODUCTID);
                 sum = sum - selectedPro.PRICE;
                 label.Text = (Int32.Parse(label.Text) - 1).ToString();
                 total.Text = String.Format("{0:#,0}", sum) + "đ";
@@ -91,22 +94,24 @@ namespace MobileApp.Views
             else
             {
                 HttpClient httpClient = new HttpClient();
-                var send = await httpClient.GetStringAsync("http://172.18.128.1/MobileAPI/cart/plus?userID=USE01&procID=" + selectedPro.PRODUCTID);
+                var send = await httpClient.GetStringAsync($"{App.Localhost}/cart/plus?userID=" + App.UserID + "&procID=" + selectedPro.PRODUCTID);
                 sum = sum + selectedPro.PRICE;
                 label.Text = (Int32.Parse(label.Text) + 1).ToString();
                 total.Text = String.Format("{0:#,0}", sum) + "đ";
 
             }
             
+            
         }
 
        async  private void Button_Clicked_1(object sender, EventArgs e)
-        {
+        {   
             Button button = (Button)sender;
             CartItems selectedPro = button.CommandParameter as CartItems;
             HttpClient httpClient = new HttpClient();
-            var send = await httpClient.GetStringAsync("http://172.18.128.1/MobileAPI/cart/delete?userID=USE01&procID=" + selectedPro.PRODUCTID);
+            var send = await httpClient.GetStringAsync($"{App.Localhost}/cart/delete?userID=" + App.UserID + "&procID=" + selectedPro.PRODUCTID);
             ListInit();
+            
         }
 
         private void Button_Clicked_2(object sender, EventArgs e)

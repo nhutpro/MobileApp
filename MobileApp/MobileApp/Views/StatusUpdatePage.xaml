@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.StatusUpdatePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="search"  Placeholder="Nhập mã đơn hàng" CancelButtonColor="Orange" PlaceholderColor="#000" TextChanged="SearchBar_TextChanged"></SearchBar>
+            <ListView  x:Name="ListOrders" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
+                                       VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout  Padding="0" Spacing="0" Margin="0">
+                                <Grid   Margin="0" RowSpacing="0" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" MinimumHeightRequest="200" MinimumWidthRequest="200"></Image>
+                                    <StackLayout Spacing="0" Grid.Column="1" Grid.Row="0">
+                                        <StackLayout Spacing="0" Orientation="Horizontal">
+                                            <Label Text="Mã đơn hàng:" FontSize="Medium"></Label>
+                                            <Label Text="{Binding ORDERID}" FontSize="Medium" Margin="10,0,0,0"></Label>
+                                        </StackLayout>
+                                        <StackLayout Spacing="0" Orientation="Vertical">
+                                            <Label Text="{Binding NAME}" FontSize="Medium"></Label>
+                                            <Label Text="{Binding NUMBER, StringFormat='SL: {0:#}'}" FontSize="Medium" Margin="5,0,0,0"></Label>
+                                        </StackLayout>
+                                        <Label Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" TextColor="red" FontSize="Medium"></Label>
+                                    </StackLayout>
+                                    <ImageButton BackgroundColor="#fff" Margin="0,30,0,0"
+                                            Source="success.png" Grid.Column="2" Grid.Row="0" 
+                                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                                                     CommandParameter="{Binding .}" Clicked="ImageButton_Clicked"></ImageButton>
+                                    <ImageButton BackgroundColor="#fff" 
+                                            Source="close.png" Grid.Column="3" Grid.Row="0" Margin="0,30,0,0"
+                                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                                                     CommandParameter="{Binding .}" Clicked="ImageButton_Clicked_1"></ImageButton>
+                                </Grid>
+                                <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
+
+                            </StackLayout>
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

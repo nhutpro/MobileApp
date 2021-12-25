@@ -49,7 +49,7 @@ namespace MobileApp.Views
 
 
             HttpClient http = new HttpClient();
-            var send = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/ChangeUserInfo?userid=" + SigninPage.currentUser.UserID + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=" + usergender + "&birthday=" + Date.Date + "&address=" + Address.Text + "");
+            var send = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/ChangeUserInfo?userid=" + SigninPage.currentUser.UserID + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=" + Gender.Text + "&birthday=" + DateofBirth.Text + "&address=" + Address.Text + "");
 
 
             await Navigation.PushAsync(new UserPage());

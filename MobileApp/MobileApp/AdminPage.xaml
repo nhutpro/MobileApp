@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MobileApp.Views"
+             x:Class="MobileApp.AdminPage">
+    <Shell.TitleView>
+        <Image Source="user.png" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="40" WidthRequest="40"/>
+    </Shell.TitleView>
+    <!--
+        The overall pp visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    
+
+    -->
+
+
+
+    <!--
+            Custom Style you can apply to any Flyout Item
+            
+             <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+            -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="mainColor">#306E51</Color>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource mainColor}"></Setter>
+                <Setter Property="Shell.TabBarForegroundColor" Value="#fff"></Setter>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#000"></Setter>
+                <Setter Property="Shell.TabBarTitleColor" Value="#fff"></Setter>
+            </Style>
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}"/>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout BackgroundColor="{StaticResource mainColor} " HeightRequest="245">
+
+                <Image Source="userIcon.png" HeightRequest="150" WidthRequest="150" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,20,0,0"></Image>
+                <ContentView>
+                    <Label Text="Admin" VerticalOptions="Center" FontSize="Large" TextColor="#fff" Margin="125,0,0,0"></Label>
+                </ContentView>
+
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="Home" FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Đơn hàng" Icon="deliverytruck.png">
+            <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:StatusUpdatePage}" />
+        </Tab>
+        <Tab Title="Doanh thu" Icon="economy.png">
+            <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:RevenuePagexaml}" />
+        </Tab>
+        <Tab Title="Sản phẩm" Icon="updated.png" >
+            <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:AdminProductPage} " />
+        </Tab>
+    </FlyoutItem>
+    <MenuItem Text="Đăng Xuất" IconImageSource="logout.png" Clicked="MenuItem_Clicked"></MenuItem>
+
+</Shell>
