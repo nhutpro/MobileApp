@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace MobileApp.Views
 {
@@ -15,8 +17,23 @@ namespace MobileApp.Views
         public UserPage()
         {
             InitializeComponent();
+            GetCurrentUsers();
+        }
+        async void GetCurrentUsers()
+        {
+            List<User> users = new List<User>();
+            HttpClient http = new HttpClient();
+            string UsersList = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/GetUser");
+            users = JsonConvert.DeserializeObject<List<User>>(UsersList);
+            foreach (User user in users)
+            {
+                if (user.UserID == SigninPage.currentUser.UserID)
+                {
+                    SigninPage.currentUser = user;
+                }
+            }
             FullName.Text = SigninPage.currentUser.FullName;
-            UsernName.Text = SigninPage.currentUser.UserName;
+            UserName.Text = SigninPage.currentUser.UserName;
         }
 
         private void Infobtn_Clicked(object sender, EventArgs e)

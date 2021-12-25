@@ -5,27 +5,43 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry x:Name="FullName" Keyboard="Text" Placeholder="Họ và Tên"
-                   WidthRequest="400" 
+                   WidthRequest="400" FontSize="Medium"
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
             <Entry x:Name="UserName" Keyboard="Text" Placeholder="Tên đăng nhập"
-                   WidthRequest="400" 
+                   WidthRequest="400" FontSize="Medium"
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
             <Entry x:Name="PassWord" Keyboard="Text" Placeholder="Mật khẩu" IsPassword="True"
-                   WidthRequest="400" 
+                   WidthRequest="400" FontSize="Medium"
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
             <Entry x:Name="Email" Keyboard="Text" Placeholder="Email"
-                   WidthRequest="400" 
+                   WidthRequest="400" FontSize="Medium"
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
             <Entry x:Name="Phone" Keyboard="Text" Placeholder="Số điện thoại"
-                   WidthRequest="400" 
+                   WidthRequest="400" FontSize="Medium"
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
-            <Entry x:Name="DateofBirth" Keyboard="Text" Placeholder="Ngày sinh"
-                   WidthRequest="400" 
-                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
-            <StackLayout>
-                <RadioButton Content="Nam" GroupName="Gender"></RadioButton>
-                <RadioButton Content="Nữ" GroupName="Gender"></RadioButton>
-            </StackLayout>
+
+            <Grid Margin="10, 0" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Ngày sinh: " FontSize="Medium"
+                       Grid.Row="0" Grid.Column="0"></Label>
+                <DatePicker x:Name="Date" 
+                            Grid.Row="0" Grid.Column="1"></DatePicker>
+
+                <Label Text="Giới tính: " FontSize="Medium"
+                       Grid.Row="1" Grid.Column="0"></Label>
+                <Picker x:Name="Gender" SelectedIndexChanged="Gender_SelectedIndexChanged"
+                        Grid.Row="1" Grid.Column="1"></Picker>
+
+            </Grid>
+            
             <Button x:Name="RegisterBtn" Text="ĐĂNG KÝ" 
                     WidthRequest="400" TextColor="White" BackgroundColor="DarkGreen" 
                     VerticalOptions="Center" HorizontalOptions="Center" Clicked="RegisterBtn_Clicked" ></Button>

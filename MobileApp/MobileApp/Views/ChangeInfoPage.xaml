@@ -13,8 +13,10 @@
                     <ColumnDefinition Width="3*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Username" 
-                       Grid.Row="0" Grid.Column="1" VerticalOptions="Start"></Label>
+                <Image Source="avt.png" WidthRequest="60"
+                   Grid.Row="0" Grid.Column="0" VerticalOptions="Center"></Image>
+                <Label x:Name="UserName" FontSize="Large"
+                       Grid.Row="0" Grid.Column="1" VerticalOptions="Center"></Label>
 
             </Grid>
 
@@ -30,13 +32,27 @@
                    WidthRequest="400" 
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>
 
-            <Entry x:Name="DateofBirth" Keyboard="Text" Placeholder="Ngày sinh"
-                   WidthRequest="400" 
-                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+            <Grid Margin="10, 0" HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
 
-            <Entry x:Name="Gender" Keyboard="Text" Placeholder="Giới tính"
-                   WidthRequest="400" 
-                   VerticalOptions="Center" HorizontalOptions="Center"></Entry>
+                <Label Text="Ngày sinh: " FontSize="Medium"
+                       Grid.Row="0" Grid.Column="0"></Label>
+                <DatePicker x:Name="Date" 
+                            Grid.Row="0" Grid.Column="1"></DatePicker>
+
+                <Label Text="Giới tính: " FontSize="Medium"
+                       Grid.Row="1" Grid.Column="0"></Label>
+                <Picker x:Name="Gender" SelectedIndexChanged="Gender_SelectedIndexChanged"
+                        Grid.Row="1" Grid.Column="1"></Picker>
+
+            </Grid>
 
             <Entry x:Name="Address" Keyboard="Text" Placeholder="Địa chỉ"
                    WidthRequest="400" 

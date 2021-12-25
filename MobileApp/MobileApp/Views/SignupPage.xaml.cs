@@ -14,10 +14,13 @@ namespace MobileApp.Views
     public partial class SignupPage : ContentPage
     {
         public List<User> users;
+        string usergender;
         public SignupPage()
         {
             InitializeComponent();
             initUsers();
+            Gender.Items.Add("Nam");
+            Gender.Items.Add("Nữ");
         }
         async void initUsers()
         {
@@ -40,8 +43,9 @@ namespace MobileApp.Views
                     return;
                 }
             }
+
             HttpClient http = new HttpClient();
-            var send = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=Nam&birthday=" + DateofBirth.Text + "&role=User");
+            var send = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=" + usergender + "&birthday=" + Date.Date + "&role=User");
             
             await DisplayAlert("Thong bao", "Tao tai khoan thanh cong!!!", "OK");
 
@@ -50,6 +54,11 @@ namespace MobileApp.Views
         private void LogginBtn_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new SigninPage());
+        }
+
+        private void Gender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            usergender = Gender.Items[Gender.SelectedIndex];
         }
     }
 }

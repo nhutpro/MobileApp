@@ -4,7 +4,7 @@
              x:Class="MobileApp.Views.UserPage">
     <ContentPage.Content>
         <StackLayout Spacing="0">
-            <Grid BackgroundColor="DarkGreen" Margin="0" HeightRequest="80">
+            <Grid BackgroundColor="DarkGreen" Margin="0" HeightRequest="100">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -15,13 +15,13 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Image Source="" 
+                <Image Source="avt.png" WidthRequest="80"
                    Grid.Row="0" Grid.Column="0"  Grid.RowSpan="2" VerticalOptions="Center"></Image>
 
-                <Label x:Name="FullName" Text="Tên khách hàng" 
+                <Label x:Name="FullName" Text="Tên khách hàng" FontSize="Large" FontAttributes="Bold"
                    Grid.Row="0" Grid.Column="1" VerticalOptions="End"></Label>
 
-                <Label x:Name="UsernName" Text="Email" 
+                <Label x:Name="UserName" Text="Email" FontSize="Medium"
                    Grid.Row="1" Grid.Column="1" VerticalOptions="Start"></Label>
 
                 <Button x:Name="Infobtn" Clicked="Infobtn_Clicked"
