@@ -44,7 +44,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Button Text="Xoá sản phẩm" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" Clicked="Button_Clicked"></Button>
-                <Button Text="Chỉnh sửa sản phẩm" HorizontalOptions="Center" Grid.Column="1" Grid.Row="0"></Button>
+                <Button Text="Chỉnh sửa sản phẩm" HorizontalOptions="Center" Grid.Column="1" Grid.Row="0" Clicked="Button_Clicked_1"></Button>
             </Grid>
             </StackLayout>
     </ContentPage.Content>

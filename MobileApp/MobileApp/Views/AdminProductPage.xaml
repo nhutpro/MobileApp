@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.AdminProductPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Thêm sản phẩm" ></ToolbarItem>
+        <ToolbarItem Text="Thêm sản phẩm" Clicked="ToolbarItem_Clicked" ></ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

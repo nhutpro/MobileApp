@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.CreateProduct">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView HeightRequest="700">
+                <StackLayout>
+                    <Image Source="ban.jpg" HeightRequest="100"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Hình ảnh: " Grid.Row="0" Grid.Column="0" FontSize="Large"></Label>
+                        <Entry x:Name="image" Placeholder="Nhập đường dẫn hình ảnh sản phẩm" Grid.Row="0" Grid.Column="1" FontSize="Large"></Entry>
+                        <Label Text="Tên:" Grid.Row="1" Grid.Column="0" FontSize="Medium" ></Label>
+                        <Entry x:Name="name" Placeholder="Nhập tên sản phẩm"  Grid.Row="1" Grid.Column="1" FontSize="Medium"></Entry>
+                        <Label Text="Mô tả: " Grid.Row="2" Grid.Column="0" FontSize="Medium"></Label>
+                        <Entry x:Name="description" Placeholder="Mô tả" Grid.Row="2" Grid.Column="1" FontSize="Medium"></Entry>
+                        <Label Text="Thương hiệu:" Margin="5" Grid.Row="3" Grid.Column="0" FontSize="Medium" />
+                        <Entry x:Name="branch" Placeholder="Nhập tên thương hiệu" Margin="5" FontSize="Medium" Grid.Row="3" Grid.Column="1"/>
+                        <Label Text="Giá:" Grid.Row="4" Grid.Column="0" Margin="5" FontSize="Medium"></Label>
+                        <Entry  x:Name="price" Placeholder="Nhập giá" Margin="5" FontSize="Medium"  Grid.Row="4" Grid.Column="1"/>
+                        <Label Text="Kho: " Grid.Row="5" Grid.Column="0" FontSize="Medium" />
+                        <Entry x:Name="stock" Placeholder="Nhập số lượng" Grid.Row="5" Grid.Column="1"  FontSize="Medium"/>
+                        <Label Text="Loại sản phẩm: " Grid.Row="6" Grid.Column="0" FontSize="Medium"></Label>
+                        <Picker x:Name="pkType"  Grid.Row="6" Grid.Column="1"></Picker>
+                    </Grid>
+
+                </StackLayout>
+
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

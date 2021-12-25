@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using MobileApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MobileApp.Views;
 
 namespace MobileApp.Views
 {
@@ -46,6 +47,11 @@ namespace MobileApp.Views
              
            
             
+        }
+
+  private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AdminUpdateProduct(product));
         }
     }
 }
