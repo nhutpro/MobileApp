@@ -70,7 +70,7 @@
             <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:RevenuePagexaml}" />
         </Tab>
         <Tab Title="Sản phẩm" Icon="updated.png" >
-            <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:OrderPage} " />
+            <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:AdminProductPage} " />
         </Tab>
     </FlyoutItem>
     <MenuItem Text="Đăng Xuất" IconImageSource="logout.png" Clicked="MenuItem_Clicked"></MenuItem>

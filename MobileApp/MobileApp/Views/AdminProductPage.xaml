@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.Views.AdminProductPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Thêm sản phẩm" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="Search" Placeholder="Tìm Kiếm" CancelButtonColor="Orange" PlaceholderColor="#000"  TextChanged="Search_TextChanged"></SearchBar>
+            <ListView  x:Name="LskItems" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
+                                       VerticalOptions="FillAndExpand" ItemSelected="LskItems_ItemSelected" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout  Padding="0" Spacing="0" Margin="0">
+                                <Grid   Margin="0" RowSpacing="0" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*">
+                                        </ColumnDefinition>
+                                        <ColumnDefinition Width="2*"></ColumnDefinition>
+                                       
+                                    </Grid.ColumnDefinitions>
+                                    <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HeightRequest="100" WidthRequest="100"></Image>
+                                    <StackLayout Spacing="0" Grid.Column="1" Grid.Row="0" >
+                                        <StackLayout Spacing="0" Orientation="Horizontal">
+                                            <Label Text="Mã sản phẩm: " FontSize="Medium"></Label>
+                                            <Label Text="{Binding PRODUCTID}" FontSize="Medium"></Label>
+                                        </StackLayout>
+                                        <Label Text="{Binding NAME}"  VerticalOptions="Center" FontSize="Medium"></Label>
+                                        <Label Text="{Binding STOCK,StringFormat='Kho: {0:#,0}'}" FontSize="Medium"></Label>
+                                    </StackLayout>
+                                    
+                                    <Label  Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" Grid.Column="1" Grid.Row="1" TextColor="red" VerticalOptions="Center"
+                                            FontSize="Medium"></Label>
+                                    
+                                </Grid>
+                                <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
+
+                            </StackLayout>
+
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
