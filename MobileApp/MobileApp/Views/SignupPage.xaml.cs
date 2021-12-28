@@ -45,7 +45,7 @@ namespace MobileApp.Views
             }
 
             HttpClient http = new HttpClient();
-            var send = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=Nam&birthday=" + DateofBirth.Text + "&role=User");
+            var send = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=Nam&birthday=" + Date.Date + "&role=User");
             
             await DisplayAlert("Thong bao", "Tao tai khoan thanh cong!!!", "OK");
 
