@@ -28,22 +28,29 @@ namespace MobileApp.Views
         }
         async void ChangePassbtn_Clicked(object sender, EventArgs e)
         {
+            int sum = 0;
             if (Email.Text != null && Password.Text != null && RePassword.Text != null)
             {
                 foreach (User user in users)
                 {
                     if (user.Email == Email.Text && RePassword.Text == Password.Text)
                     {
-                        DisplayAlert("Thong bao", "Thay đổi mật khẩu thành công!", "OK");
+                      
                         HttpClient http = new HttpClient();
                         var send = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/ChangeUserPassword?email=" + Email.Text + "&password=" + Password.Text + "");
-                        
+                        await DisplayAlert("Thông báo", "Thay đổi mật khẩu thành công!", "OK");
+                        sum = 1;
+                        await Navigation.PopAsync();
                     }
+                }
+                if(sum == 0)
+                {
+                    await DisplayAlert("Thong bao", "Loi", "OK");
                 }
             }
             else
             {
-                DisplayAlert("Thong bao", "Vui lòng nhập thông tin!", "OK");
+               await DisplayAlert("Thong bao", "Vui lòng nhập thông tin!", "OK");
             }
         }
     }

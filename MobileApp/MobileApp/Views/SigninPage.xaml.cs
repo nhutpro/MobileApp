@@ -19,7 +19,7 @@ namespace MobileApp.Views
         public SigninPage()
         {
             InitializeComponent();
-            initUsers();
+          
             NavigationPage.SetHasBackButton(this, false);
         }
 
@@ -36,7 +36,7 @@ namespace MobileApp.Views
 
         private void LogginBtn_Clicked(object sender, EventArgs e)
         {
-
+            
             if (UserName.Text != null && Password.Text != null)
             {
                 foreach (User user in users)
@@ -71,6 +71,13 @@ namespace MobileApp.Views
         private void FogotPass_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ChangePasswordPage());
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            initUsers();
+
+
         }
     }
 }
