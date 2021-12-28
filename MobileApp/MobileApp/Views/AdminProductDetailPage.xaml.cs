@@ -8,6 +8,7 @@ using MobileApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MobileApp.Views;
+using Newtonsoft.Json;
 
 namespace MobileApp.Views
 {
@@ -24,8 +25,12 @@ namespace MobileApp.Views
             this.product = p;
             Init();
         }
-        void Init()
+       async  void Init()
         {
+            HttpClient httpClient = new HttpClient();
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/get?ProID={product.PRODUCTID}");
+            var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
+            this.product = productlistConvert[0];
             ProductImg.Source = product.IMAGE;
             NameLbl.Text = product.NAME;
             DescriptionLbl.Text = product.DESCRIPTION;
@@ -49,9 +54,19 @@ namespace MobileApp.Views
             
         }
 
-  private void Button_Clicked_1(object sender, EventArgs e)
+           private void Button_Clicked_1(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AdminUpdateProduct(product));
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            Init();
+
+
+
+        }
     }
+
 }

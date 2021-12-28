@@ -34,6 +34,7 @@ namespace MobileApp.Views
             }
             FullName.Text = SigninPage.currentUser.FullName;
             UserName.Text = SigninPage.currentUser.UserName;
+
         }
 
         private void Infobtn_Clicked(object sender, EventArgs e)
@@ -51,5 +52,14 @@ namespace MobileApp.Views
         {
             Navigation.PushAsync(new OrderPage());
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            GetCurrentUsers();
+
+
+
+        }
+
     }
 }

@@ -21,6 +21,7 @@ namespace MobileApp.Views
             GetCurrentUsers();
             Gender.Items.Add("Nam");
             Gender.Items.Add("Nữ");
+            
             UserName.Text = SigninPage.currentUser.UserName;
             FullName.Text = SigninPage.currentUser.FullName;
             Email.Text = SigninPage.currentUser.Email;
@@ -31,7 +32,7 @@ namespace MobileApp.Views
         {
             List<User> users = new List<User>();
             HttpClient http = new HttpClient();
-            string UsersList = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/GetUser");
+            string UsersList = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/GetUser");
             users = JsonConvert.DeserializeObject<List<User>>(UsersList);
             foreach (User user in users)
             {
@@ -40,6 +41,15 @@ namespace MobileApp.Views
                     SigninPage.currentUser = user;
                 }
             }
+            if(SigninPage.currentUser.Gender == "Nam")
+            {
+                Gender.SelectedIndex = 0;
+            }
+            else
+            {
+                Gender.SelectedIndex = 1;
+            }
+            Date.Date = SigninPage.currentUser.Birthday;
         }
 
         async void ChangeBtn_Clicked(object sender, EventArgs e)
@@ -52,7 +62,7 @@ namespace MobileApp.Views
             var send = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/ChangeUserInfo?userid=" + SigninPage.currentUser.UserID + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=" + Gender + "&birthday=" + Date.Date + "&address=" + Address.Text + "");
 
 
-            await Navigation.PushAsync(new UserPage());
+            await Navigation.PopAsync();
         }
 
         private void Gender_SelectedIndexChanged(object sender, EventArgs e)

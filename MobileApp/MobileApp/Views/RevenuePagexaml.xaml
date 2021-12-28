@@ -21,51 +21,54 @@
             </Grid>
             <Button x:Name="revenue" Text="Xem doanh thu" WidthRequest="200" HorizontalOptions="Center" Clicked="revenue_Clicked"></Button>
             <StackLayout x:Name="mainrevenue" Spacing="0" >
-                <ListView x:Name="listRevenue"  HasUnevenRows = "True" >
-                    <ListView.ItemTemplate >
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout  Padding="0" Spacing="0" Margin="0">
-                                    <Grid   Margin="0" RowSpacing="0" >
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"></RowDefinition>
-                                            <RowDefinition Height="Auto"></RowDefinition>
-                                            <RowDefinition Height="Auto"></RowDefinition>
-                                            <RowDefinition Height="Auto"></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*">
-                                            </ColumnDefinition>
-                                            <ColumnDefinition Width="2*"></ColumnDefinition>
-                                            
-                                            
-                                        </Grid.ColumnDefinitions>
-                                        <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4"  HeightRequest="100" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Center"></Image>
-                                        
+                <ScrollView HeightRequest="700">
+                    <ListView x:Name="listRevenue"   HasUnevenRows="True">
+                        <ListView.ItemTemplate >
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout  Padding="0" Spacing="0" Margin="0">
+                                        <Grid   Margin="0" RowSpacing="0" >
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*">
+                                                </ColumnDefinition>
+                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+
+
+                                            </Grid.ColumnDefinitions>
+                                            <Image x:Name="img" Source="{Binding IMAGE}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="4"  HeightRequest="100" WidthRequest="100" VerticalOptions="Center" HorizontalOptions="Center"></Image>
+
                                             <StackLayout Spacing="0" Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
                                                 <Label Text="Mã đơn hàng:" FontSize="Medium"></Label>
                                                 <Label Text="{Binding ORDERID}" FontSize="Medium" Margin="10,0,0,0"></Label>
                                             </StackLayout>
-                                        <StackLayout Spacing="0" Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+                                            <StackLayout Spacing="0" Orientation="Vertical" Grid.Row="2" Grid.Column="1">
                                                 <Label Text="{Binding NAME}" FontSize="Medium"></Label>
                                                 <StackLayout Spacing="0" Orientation="Horizontal">
                                                     <Label Text="{Binding NUMBER, StringFormat='SL: {0:#}'}" FontSize="Medium" Margin="5,0,0,0"></Label>
                                                     <Label Text="{Binding STOCK, StringFormat='Kho: {0:#}'}" FontSize="Medium" Margin="5,0,0,0"></Label>
                                                 </StackLayout>
-                                                
+
                                             </StackLayout>
-                                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" TextColor="red" FontSize="Medium"></Label>
-                                
-                                        
-                                    </Grid>
-                                    <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
+                                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding PRICE, StringFormat='{0:#,0} đ'}" TextColor="red" FontSize="Medium"></Label>
 
-                                </StackLayout>
 
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                                        </Grid>
+                                        <Grid BackgroundColor="#000" HeightRequest="1" RowSpacing="0"></Grid>
+
+                                    </StackLayout>
+
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+                
                 <StackLayout Spacing="0" Margin="0,20,0,0">
                     <StackLayout Spacing="0" Orientation="Horizontal">
                         <Label Text="Tổng đơn hàng: " FontSize="Large" Margin="10,0,0,0"></Label>
