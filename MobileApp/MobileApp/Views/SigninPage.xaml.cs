@@ -49,15 +49,15 @@ namespace MobileApp.Views
                         {   
                             App.Current.MainPage = new AdminPage();
                             App.UserID = user.UserID;
-                           
+                            currentUser = user;
                         }
                         else
                         {
                             App.Current.MainPage = new AppShell();
                             App.UserID = user.UserID;
+                            currentUser = user;
                         }    
                             
-
                     }
                 }
             }
@@ -70,7 +70,7 @@ namespace MobileApp.Views
 
         private void FogotPass_Clicked(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new ChangePasswordPage());
         }
     }
 }

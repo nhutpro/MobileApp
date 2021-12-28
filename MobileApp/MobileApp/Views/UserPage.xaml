@@ -18,10 +18,10 @@
                 <Image Source="avt.png" WidthRequest="80"
                    Grid.Row="0" Grid.Column="0"  Grid.RowSpan="2" VerticalOptions="Center"></Image>
 
-                <Label x:Name="FullName" Text="Tên khách hàng" FontSize="Large" FontAttributes="Bold"
+                <Label x:Name="FullName" Text="" FontSize="Large" FontAttributes="Bold"
                    Grid.Row="0" Grid.Column="1" VerticalOptions="End"></Label>
 
-                <Label x:Name="UserName" Text="Email" FontSize="Medium"
+                <Label x:Name="UserName" Text="" FontSize="Medium"
                    Grid.Row="1" Grid.Column="1" VerticalOptions="Start"></Label>
 
                 <Button x:Name="Infobtn" Clicked="Infobtn_Clicked"

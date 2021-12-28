@@ -23,7 +23,7 @@ namespace MobileApp.Views
         {
             List<User> users = new List<User>();
             HttpClient http = new HttpClient();
-            string UsersList = await http.GetStringAsync("http://192.168.0.102/WebAPI/api/ServiceController/GetUser");
+            string UsersList = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/GetUser");
             users = JsonConvert.DeserializeObject<List<User>>(UsersList);
             foreach (User user in users)
             {
@@ -33,8 +33,7 @@ namespace MobileApp.Views
                 }
             }
             FullName.Text = SigninPage.currentUser.FullName;
-            UsernName.Text = SigninPage.currentUser.UserName;
-
+            UserName.Text = SigninPage.currentUser.UserName;
         }
 
         private void Infobtn_Clicked(object sender, EventArgs e)
