@@ -43,11 +43,13 @@
             <Color x:Key="mainColor">#306E51</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource mainColor}"></Setter>
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource mainColor}" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="#fff"></Setter>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#000"></Setter>
                 <Setter Property="Shell.TabBarTitleColor" Value="#fff"></Setter>
             </Style>
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}"/>
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
 

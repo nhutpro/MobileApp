@@ -17,7 +17,7 @@ namespace MobileApp
             DependencyService.Register<MockDataStore>();
 
 
-            Localhost = "http://192.168.1.7/MobileAPI";
+            Localhost = "http://192.168.1.4/MobileAPI";
             MainPage = new NavigationPage (new SigninPage());
           
         }
