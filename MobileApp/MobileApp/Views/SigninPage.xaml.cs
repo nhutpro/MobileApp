@@ -36,15 +36,16 @@ namespace MobileApp.Views
 
         private void LogginBtn_Clicked(object sender, EventArgs e)
         {
-            
+            int sum = 0;
             if (UserName.Text != null && Password.Text != null)
             {
                 foreach (User user in users)
                 {
                     if (user.UserName == UserName.Text && user.Password == Password.Text)
                     {
+                        sum = 1;
                         currentUser = user;
-                        DisplayAlert("Thong bao", "Dang nhap thanh cong!!!", "OK");
+                        DisplayAlert("Thông Báo", "Đăng nhập thành công!!!", "OK");
                         if (user.Role == "admin")
                         {   
                             App.Current.MainPage = new AdminPage();
@@ -60,10 +61,14 @@ namespace MobileApp.Views
                             
                     }
                 }
+                if(sum == 0)
+                {
+                    DisplayAlert("Thông Báo", "Mật khẩu không đúng", "OK");
+                }    
             }
             else
             {
-                DisplayAlert("Thong bao", "Nhap tai khoan va mat khau!!!", "OK");
+                DisplayAlert("Thông Báo", "Nhập tài khoản và mật khẩu!!!", "OK");
             }
             
         }

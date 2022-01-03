@@ -56,7 +56,7 @@ namespace MobileApp.Views
         {
             Button button = (Button)sender;
             resetColor();
-            button.BackgroundColor = Color.FromHex("008000");
+            button.BackgroundColor = Color.FromHex("003300");
             HttpClient httpClient = new HttpClient();
             var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/kemchongnang");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
@@ -72,7 +72,7 @@ namespace MobileApp.Views
         {
             Button button = (Button)sender;
             resetColor();
-            button.BackgroundColor = Color.FromHex("008000");
+            button.BackgroundColor = Color.FromHex("003300");
             HttpClient httpClient = new HttpClient();
             var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/serum");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
@@ -83,7 +83,7 @@ namespace MobileApp.Views
         {
             Button button = (Button)sender;
             resetColor();
-            button.BackgroundColor = Color.FromHex("008000");
+            button.BackgroundColor = Color.FromHex("003300");
             HttpClient httpClient = new HttpClient();
             var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/toner");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
@@ -94,7 +94,7 @@ namespace MobileApp.Views
         {
             Button button = (Button)sender;
             resetColor();
-            button.BackgroundColor = Color.FromHex("008000");
+            button.BackgroundColor = Color.FromHex("003300");
             HttpClient httpClient = new HttpClient();
             var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/kemchongnang");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);

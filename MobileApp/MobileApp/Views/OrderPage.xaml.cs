@@ -20,7 +20,12 @@ namespace MobileApp.Views
             
             
         }
-       async public void listinit()
+        public void resetColor()
+        {
+            running.BackgroundColor = success.BackgroundColor = fail.BackgroundColor =  Color.FromHex("306E51");
+
+        }
+        async public void listinit()
         {
             
             HttpClient httpClient = new HttpClient();
@@ -33,9 +38,11 @@ namespace MobileApp.Views
 
        async private void running_Clicked(object sender, EventArgs e)
         {
+            Button button = (Button)sender;
+            resetColor();
+            button.BackgroundColor = Color.FromHex("003300");
             HttpClient httpClient = new HttpClient();
             var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/running?UserID={App.UserID}");
-            
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
             LskOrders.ItemsSource = productlistConvert;
             
@@ -43,14 +50,21 @@ namespace MobileApp.Views
 
         async private void success_Clicked(object sender, EventArgs e)
         {
+            Button button = (Button)sender;
+            resetColor();
+            button.BackgroundColor = Color.FromHex("003300");
             HttpClient httpClient = new HttpClient();
             var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/success?UserID={App.UserID}");
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
             LskOrders.ItemsSource = productlistConvert;
         }
+        
 
         async private void fail_Clicked(object sender, EventArgs e)
         {
+            Button button = (Button)sender;
+            resetColor();
+            button.BackgroundColor = Color.FromHex("003300");
             HttpClient httpClient = new HttpClient();
             var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/fail?UserID={App.UserID}");
             var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
@@ -60,6 +74,7 @@ namespace MobileApp.Views
         {
             base.OnAppearing();
             listinit();
+            resetColor();
         }
     }
 }
