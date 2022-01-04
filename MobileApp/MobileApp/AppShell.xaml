@@ -80,6 +80,7 @@
             <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:UserPage}" />
         </Tab>
     </FlyoutItem>
+    <MenuItem Text="Đăng Xuất" IconImageSource="logout.png" Clicked="MenuItem_Clicked"></MenuItem>
 
 
 

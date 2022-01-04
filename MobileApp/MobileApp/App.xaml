@@ -8,7 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">Green</Color>
-            <Color x:Key="mRed">#DD0000</Color>
+            <Color x:Key="mRed">#306E51</Color>
             <Color x:Key="mWhite">#FFFFFF</Color>
             <Style TargetType="Button">
                 <Setter Property="TextColor" Value="White"></Setter>

@@ -2,10 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MobileApp.Views.SignupPage"
-             NavigationPage.HasNavigationBar = "false"
+             
              >
     <ContentPage.Content>
         <StackLayout  Margin="0,0,0,0" BackgroundColor="White">
+            <Image Source="hasaki.vn" WidthRequest="400" Margin="20"></Image>
             <Entry x:Name="FullName" Keyboard="Text" Placeholder="Họ và Tên"
                    WidthRequest="400" FontSize="Medium"
                    VerticalOptions="Center" HorizontalOptions="Center"></Entry>

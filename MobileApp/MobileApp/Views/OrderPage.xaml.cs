@@ -76,5 +76,15 @@ namespace MobileApp.Views
             listinit();
             resetColor();
         }
+
+        private void LskOrders_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+            else
+            {
+                ((ListView)sender).SelectedItem = null;
+            }
+        }
     }
 }

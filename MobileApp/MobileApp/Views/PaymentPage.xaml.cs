@@ -40,12 +40,12 @@ namespace MobileApp.Views
          
             var userlist = await httpClient.GetStringAsync($"{App.Localhost}/user/getbyid?userID=" + App.UserID);
             List<User>  userlistConvert = JsonConvert.DeserializeObject<List<User>>(userlist);
-            await DisplayAlert("Thong bao", userlistConvert.Count.ToString(), "OK");
-            /*
+            
+            
             User user = userlistConvert.ElementAt(0);
             name.Text = user.FullName;
-            phone.Text = user.Phone;*/
-            
+            phone.Text = user.Phone;
+            address.Text = user.Address;
         }
 
       async  private void Button_Clicked(object sender, EventArgs e)

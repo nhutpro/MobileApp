@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace MobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UpdateProductPagexaml : ContentView
+    public partial class UpdateProductPagexaml : ContentPage
     {
         Products product;
         public UpdateProductPagexaml()

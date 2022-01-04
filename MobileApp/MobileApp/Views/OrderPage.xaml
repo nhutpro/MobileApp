@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.OrderPage">
+             x:Class="MobileApp.Views.OrderPage"
+             Title="Đơn Hàng">
     <ContentPage.Content>
         <StackLayout HeightRequest="400" Spacing="0">
             <Grid BackgroundColor="#306E51" >
@@ -24,7 +25,7 @@
 
             <StackLayout Spacing="0" >
                 <ListView  x:Name="LskOrders" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
-                                       VerticalOptions="FillAndExpand">
+                                       VerticalOptions="FillAndExpand" ItemSelected="LskOrders_ItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell >

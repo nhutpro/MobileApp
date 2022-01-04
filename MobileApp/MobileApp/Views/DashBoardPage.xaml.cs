@@ -58,7 +58,7 @@ namespace MobileApp.Views
             resetColor();
             button.BackgroundColor = Color.FromHex("003300");
             HttpClient httpClient = new HttpClient();
-            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/kemchongnang");
+            var productlist = await httpClient.GetStringAsync($"{App.Localhost}/product/suaruamat");
             var productlistConvert = JsonConvert.DeserializeObject<List<Products>>(productlist);
             LskItems.ItemsSource = productlistConvert;
         }

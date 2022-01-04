@@ -11,7 +11,7 @@ namespace MobileApp
         public AppShell()
         {   
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
+           
 
            
 
@@ -20,6 +20,11 @@ namespace MobileApp
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//LoginPage");
+        }
+
+        private void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage = new NavigationPage(new SigninPage());
         }
     }
 }

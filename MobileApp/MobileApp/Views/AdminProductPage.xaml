@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.AdminProductPage">
+             x:Class="MobileApp.Views.AdminProductPage"
+             Title="Sản Phẩm">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Thêm sản phẩm" Clicked="ToolbarItem_Clicked" ></ToolbarItem>
     </ContentPage.ToolbarItems>

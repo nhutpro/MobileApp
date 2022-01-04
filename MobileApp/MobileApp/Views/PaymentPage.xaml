@@ -20,9 +20,9 @@
                        Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Start"></Image>
                 <StackLayout Grid.Column="1" Grid.Row="0" Spacing="0" HorizontalOptions="FillAndExpand">
                     <Label  Text="Địa chỉ giao hàng" FontSize="Medium"></Label>
-                    <Label x:Name="name" Text="Trần Nhựt" FontSize="Medium"></Label>
-                    <Label x:Name="phone" Text="0393625460" FontSize="Medium"></Label>
-                    <Label x:Name="address" Text="31 QL 13 Phường 26, quận Bình Thạnh" FontSize="Medium"></Label>
+                    <Label x:Name="name"  FontSize="Medium"></Label>
+                    <Label x:Name="phone"  FontSize="Medium"></Label>
+                    <Label x:Name="address"  FontSize="Medium"></Label>
                 </StackLayout>
             </Grid>
             <ListView  x:Name="listpayment" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
@@ -61,14 +61,14 @@
                 <Label Text="Phương Thức Vận Chuyển" TextColor="#000" Margin="10,0,0,0" FontSize="Large"></Label>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Nhanh" VerticalOptions="Start" Margin="10,0,0,0" FontSize="Large" ></Label>
-                    <Label Text="30.000đ" VerticalOptions="End" Margin="200,0,0,0" FontSize="Large"></Label>
+                    <Label Text="30.000đ" VerticalOptions="End" Margin="200,0,0,0" FontSize="Large" TextColor="Red"></Label>
                 </StackLayout>
             </StackLayout>
             <BoxView HeightRequest="1" BackgroundColor="#ccc"></BoxView>
             <StackLayout Orientation="Horizontal" HorizontalOptions="End" Spacing="0">
                 <StackLayout Spacing="0" Margin="0,0,10,0">
                     <Label Text="Tổng Thanh Toán" FontSize="Large"></Label>
-                    <Label x:Name="total" FontSize="Large" HorizontalOptions="End" ></Label>
+                    <Label x:Name="total" FontSize="Large" HorizontalOptions="End" TextColor="Red"></Label>
                 </StackLayout>
                 <Button Text="Đặt Hàng"  HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked"></Button>
             </StackLayout>

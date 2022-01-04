@@ -39,7 +39,7 @@ namespace MobileApp.Views
             {
                 if (UserName.Text == user.UserName)
                 {
-                    await DisplayAlert("Thong bao", "Tên tài khoản đã tồn tại!!!", "OK");
+                    await DisplayAlert("Thông Báo", "Tên tài khoản đã tồn tại!!!", "OK");
                     return;
                 }
             }
@@ -47,7 +47,7 @@ namespace MobileApp.Views
             HttpClient http = new HttpClient();
             var send = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=Nam&birthday=" + Date.Date + "&role=User");
             
-            await DisplayAlert("Thong bao", "Tao tai khoan thanh cong!!!", "OK");
+            await DisplayAlert("Thông Báo", "Tạo Tài Khoản Thành Công!!!", "OK");
 
         }
 

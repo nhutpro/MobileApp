@@ -41,7 +41,7 @@ namespace MobileApp.Views
                 HttpClient httpClient = new HttpClient();
                 var productlist = await httpClient.GetStringAsync($"{App.Localhost}/order/allsuccess?month={pkMonth.Items[pkMonth.SelectedIndex]}&year={year.Text}");
                 var productlistConvert = JsonConvert.DeserializeObject<List<Orders>>(productlist);
-                await DisplayAlert("OK", pkMonth.Items[pkMonth.SelectedIndex], "OK");
+                
                 if (productlistConvert.Count == 0)
                 {
                     await DisplayAlert("OK", "Tháng này không có doanh thu", "OK");

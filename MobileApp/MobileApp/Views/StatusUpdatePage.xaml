@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MobileApp.Views.StatusUpdatePage">
+             x:Class="MobileApp.Views.StatusUpdatePage"
+             Title="Cập Nhật Đơn Hàng">
     <ContentPage.Content>
         <StackLayout>
             <SearchBar x:Name="search"  Placeholder="Nhập mã đơn hàng" CancelButtonColor="Orange" PlaceholderColor="#000" TextChanged="SearchBar_TextChanged"></SearchBar>

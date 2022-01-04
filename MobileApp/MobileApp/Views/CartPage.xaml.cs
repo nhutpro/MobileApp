@@ -105,12 +105,17 @@ namespace MobileApp.Views
         }
 
        async  private void Button_Clicked_1(object sender, EventArgs e)
-        {   
-            Button button = (Button)sender;
-            CartItems selectedPro = button.CommandParameter as CartItems;
-            HttpClient httpClient = new HttpClient();
-            var send = await httpClient.GetStringAsync($"{App.Localhost}/cart/delete?userID=" + App.UserID + "&procID=" + selectedPro.PRODUCTID);
-            ListInit();
+        {
+            var choice = await DisplayAlert("Thông Báo", "Bạn muốn xoá sản phẩm này", "OK", "Cancel");
+            if (choice)
+            {
+                Button button = (Button)sender;
+                CartItems selectedPro = button.CommandParameter as CartItems;
+                HttpClient httpClient = new HttpClient();
+                var send = await httpClient.GetStringAsync($"{App.Localhost}/cart/delete?userID=" + App.UserID + "&procID=" + selectedPro.PRODUCTID);
+                ListInit();
+            }
+            
             
         }
 
