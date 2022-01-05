@@ -17,7 +17,7 @@ namespace MobileApp
             DependencyService.Register<MockDataStore>();
 
 
-            Localhost = "http://192.168.1.6/MobileAPI";
+            Localhost = "http://www.qlshop.somee.com";
             MainPage = new NavigationPage (new SigninPage());
           
         }

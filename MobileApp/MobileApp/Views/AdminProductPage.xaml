@@ -8,7 +8,7 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <SearchBar x:Name="Search" Placeholder="Tìm Kiếm" CancelButtonColor="Orange" PlaceholderColor="#000"  TextChanged="Search_TextChanged"></SearchBar>
+            <SearchBar x:Name="Search" Placeholder="Nhập mã sản phẩm" CancelButtonColor="Orange" PlaceholderColor="#000"  TextChanged="Search_TextChanged"></SearchBar>
             <ListView  x:Name="LskItems" HasUnevenRows="True" HorizontalOptions="FillAndExpand" 
                                        VerticalOptions="FillAndExpand" ItemSelected="LskItems_ItemSelected" >
                 <ListView.ItemTemplate>
