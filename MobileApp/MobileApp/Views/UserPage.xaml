@@ -20,10 +20,10 @@
                    Grid.Row="0" Grid.Column="0"  Grid.RowSpan="2" VerticalOptions="Center"></Image>
 
                 <Label x:Name="FullName" Text="" FontSize="Large" FontAttributes="Bold"
-                   Grid.Row="0" Grid.Column="1" VerticalOptions="End"></Label>
+                   Grid.Row="0" Grid.Column="1" VerticalOptions="End" TextColor="White"></Label>
 
                 <Label x:Name="UserName" Text="" FontSize="Medium"
-                   Grid.Row="1" Grid.Column="1" VerticalOptions="Start"></Label>
+                   Grid.Row="1" Grid.Column="1" VerticalOptions="Start" TextColor="White"></Label>
 
                 <Button x:Name="Infobtn" Clicked="Infobtn_Clicked"
                     Text=">" FontSize="Large" 
