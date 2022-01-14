@@ -47,7 +47,7 @@ namespace MobileApp.Views
             Orders product = button.CommandParameter as Orders;
             HttpClient httpClient = new HttpClient();
             String addCart = await httpClient.GetStringAsync($"{App.Localhost}/order/failstatus?&OrderID=" + product.ORDERID);
-            await DisplayAlert("Thông Báo", "Thêm nhật thành công", "OK");
+            await DisplayAlert("Thông Báo", "cập nhật thành công", "OK");
             listInit();
         }
 

@@ -48,13 +48,14 @@ namespace MobileApp.Views
             var send = await http.GetStringAsync($"{App.Localhost}/api/ServiceController/AddUser?username=" + UserName.Text + "&password=" + PassWord.Text + "&fullname=" + FullName.Text + "&email=" + Email.Text + "&phone=" + Phone.Text + "&gender=Nam&birthday=" + Date.Date + "&role=User");
             
             await DisplayAlert("Thông Báo", "Tạo Tài Khoản Thành Công!!!", "OK");
+            App.Current.MainPage = new NavigationPage(new SigninPage());
 
         }
 
         private void LogginBtn_Clicked(object sender, EventArgs e)
         {
-           
-            Navigation.PushAsync(new SigninPage());
+
+            App.Current.MainPage = new NavigationPage(new SigninPage());
         }
 
         private void Gender_SelectedIndexChanged(object sender, EventArgs e)
