@@ -35,7 +35,7 @@ namespace MobileApp.Views
        async private void revenue_Clicked(object sender, EventArgs e)
         {
             
-            if (Regex.Match(year.Text, $"[1-2][0-9][0-9][0-9]").Success)
+            if (Regex.Match(year.Text, $"[1-2][0-9][0-9][0-9]").Success|| year.Text == null)
             {
                 mainrevenue.IsVisible = false;
                 HttpClient httpClient = new HttpClient();
